@@ -1,8 +1,12 @@
 import csv
 import json
 
-handleToName = ""
+senateHandleToName = "senate_handles.csv"
+houseHandleToName = "house_handles.csv"
+handleToName = houseHandleToName
 donors = ["bloomberg", "fahr", "koch", "las_vegas_sands", "nra", "paloma", "planned_parenthood", "uline"]
+trainExamples = 
+testExamples = 
 numIters = 1000     # check
 eta = 0.1           # check
 
