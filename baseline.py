@@ -7,7 +7,16 @@ houseHandleToName = "house_handles.csv"
 donors = ["bloomberg", "fahr", "koch", "las_vegas_sands", "nra", "paloma", "planned_parenthood", "uline"]
 trainFile = "train.csv" 
 testFile = "test.csv"
+allWords = {}
 
+def getX(featureList):
+    X = []
+    for features in featureList:
+        tmp = []
+        for word in allWords:
+            tmp.append(1 if word in features else 0)
+        X.append(tmp)
+    return X
 
 def learnPredictor(X, Y):
     print(X)
@@ -19,19 +28,21 @@ def bagOfWordsExtractor(text):
     tweet = text["text"]
     return list(tweet.split())
 
-def collectExamplesForPolitician(handle, X, Y, featureExtractor, hasDonor):
+def collectExamplesForPolitician(handle, featureList, Y, featureExtractor, hasDonor):
     try:
         with open("Tweets/" + handle + ".json") as json_file:
             data = json.load(json_file)
             for tweet in data:
-                X.append(featureExtractor(tweet))
+                features = featureExtractor(tweet)
+                allWords.update(dict.fromkeys(features))
+                featureList.append(features)
                 Y.append(hasDonor)
     except IOError:
         print ("Can't find file: Tweets/" + handle + ".json")
 
 def collectExamplesForDonor(donor, politicianFile, featureExtractor, candidateToHandleMap):
     recipients = []
-    X = []
+    featureList = []
     Y = []
 
     with open("donors/" + donor + ".csv") as csv_file:
@@ -42,9 +53,9 @@ def collectExamplesForDonor(donor, politicianFile, featureExtractor, candidateTo
     with open(politicianFile) as csv_file:
         csv_reader = csv.reader(csv_file)
         for row in csv_reader:
-            collectExamplesForPolitician(candidateToHandleMap[row[0]], X, Y, featureExtractor, 1 if row[0] in recipients else 0)
+            collectExamplesForPolitician(candidateToHandleMap[row[0]], featureList, Y, featureExtractor, 1 if row[0] in recipients else 0)
 
-    return (X,Y)
+    return (featureList,Y)
 
 def buildCandidateToHandleMap():
     candidateToHandleMap = {}
@@ -62,10 +73,18 @@ def buildCandidateToHandleMap():
     return candidateToHandleMap
 
 def runDonor(donor, candidateToHandleMap):
+    print("Collecting training examples...")
     trainExamples = collectExamplesForDonor(donor, trainFile, bagOfWordsExtractor, candidateToHandleMap)
-    classifier = learnPredictor(trainExamples[0], trainExamples[1])
+    print("Formatting features...")
+    X = getX(trainExamples[0])
+    print("Learning predictor...")
+    classifier = learnPredictor(X, trainExamples[1])
+    print("Collecting test examples...")
     testExamples = collectExamplesForDonor(donor, testFile, bagOfWordsExtractor, candidateToHandleMap)
-    classifier.score(X, Y)
+    print("Formatting features...")
+    X = getX(testExamples[0])
+    print("Scoring...")
+    classifier.score(X, testExamples[1])
 
 candidateToHandleMap = buildCandidateToHandleMap()
 for donor in donors:
