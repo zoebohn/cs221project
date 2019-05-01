@@ -4,13 +4,13 @@
 "Aderholt, Robert",Robert_Aderholt
 "Brooks, Mo",RepMoBrooks
 "Palmer, Gary",USRepGaryPalmer
-"Sewell, Terri A.",RepTerriSewell
+"Sewell, Terri A",RepTerriSewell
 "Young, Don",repdonyoung
 "Radewagen, Amata",RepAmata
 "O’Halleran, Tom",TomOHalleran
 "Kirkpatrick, Ann",RepKirkPatrick
 "Grijalva, Raul",RepRaulGrijalva
-"Gosar, Paul A.",RepGosar
+"Gosar, Paul",RepGosar
 "Biggs, Andy",AndyBiggs4AZ
 "Schweikert, David",RepDavid
 "Gallego, Ruben",RepRubenGallego
@@ -28,7 +28,7 @@
 "Swalwell, Eric",RepSwalwell
 "Costa, Jim",RepJimCosta
 "Khanna, Ro",RoKhannaUSA
-"Eshoo, Anna G.",RepAnnaEshoo
+"Eshoo, Anna",RepAnnaEshoo
 "Lofgren, Zoe",RepZoeLofgren
 "LaMalfa, Doug",RepLaMalfa
 "Panetta, Jimmy",JimmyPanetta
@@ -64,12 +64,12 @@
 "Rouda, Harley",RepHarley
 "Levin, Mike",RepMikeLevin
 "McClintock, Tom",RepMcClintock
-"Hunter, Duncan D.",Rep_Hunter
+"Hunter, Duncan D",Rep_Hunter
 "Vargas, Juan",RepJuanVargas
 "Peters, Scott",RepScottPeters
 "Davis, Susan",RepSusanDavis
 "Thompson, Mike",RepThompson
-"Matsui, Doris O.",DorisMatsui
+"Matsui, Doris O",DorisMatsui
 "Bera, Ami",RepBera
 "Cook, Paul",RepPaulCook
 "McNerney, Jerry",RepMcNerney
@@ -80,16 +80,16 @@
 "Lamborn, Doug",RepDLamborn
 "Crow, Jason",RepJasonCrow
 "Perlmutter, Ed",RepPerlmutter
-"Larson, John B.",RepJohnLarson
+"Larson, John",RepJohnLarson
 "Courtney, Joe",RepJoeCourtney
-"DeLauro, Rosa L.",rosadelauro
+"DeLauro, Rosa L",rosadelauro
 "Himes, Jim",jahimes
 "Hayes, Jahana",RepJahanaHayes
 "Blunt Rochester, Lisa",LisaBRochester
-"Norton, Eleanor Holmes",EleanorNorton
+"Norton, Eleanor",EleanorNorton
 "Demings, Val",Val_Demings
 "Webster, Daniel",RepWebster
-"Bilirakis, Gus M.",RepGusBilirakis
+"Bilirakis, Gus",RepGusBilirakis
 "Crist, Charlie",CharlieCrist
 "Castor, Kathy",USRepKCastor
 "Spano, Ross",RepRossSpano
@@ -98,14 +98,14 @@
 "Mast, Brian",BrianMastFL
 "Rooney, Francis",FrancisRooney
 "Gaetz, Matt",MattGaetz
-"Hastings, Alcee L.",RepHastingsFL
+"Hastings, Alcee",RepHastingsFL
 "Frankel, Lois",RepLoisFrankel
 "Deutch, Ted",RepTedDeutch
 "Wasserman Schultz, Debbie",RepDWStweets
 "Wilson, Frederica",RepWilson
 "Diaz-Balart, Mario",MarioDB
 "Mucarsel-Powell, Debbie",RepDMP
-"Shalala, Donna E.",RepShalala
+"Shalala, Donna",RepShalala
 "Dunn, Neal",DrNealDunn
 "Yoho, Ted",RepTedYoho
 "Rutherford, John",JRutherfordFL
@@ -120,15 +120,15 @@
 "Scott, David",repdavidscott
 "Graves, Tom",RepTomGraves
 "Carter, Buddy",RepBuddyCarter
-"Bishop Jr., Sanford D.",SanfordBishop
+"Bishop, Sanford",SanfordBishop
 "Ferguson, Drew",DrewFergusonGA
-"Johnson, Henry C. “Hank” Jr.",RepHankJohnson
+"Johnson, Henry",RepHankJohnson
 "Lewis, John",repjohnlewis
 "McBath, Lucy",RepLucyMcBath
 "Woodall, Robert",RepRobWoodall
 "Scott, Austin",AustinScottGA08
 "Collins, Doug",RepDougCollins
-"San Nicolas, Michael F.Q.",#VALUE!
+"San Nicolas, Michael",#VALUE!
 "Case, Ed",RepEdCase
 "Gabbard, Tulsi",TulsiPress
 "Fulcher, Russ",RepRussFulcher
@@ -142,10 +142,10 @@
 "Kinzinger, Adam",RepKinzinger
 "Bustos, Cheri",RepCheri
 "LaHood,Darin",ElectLaHood
-"Rush, Bobby L.",RepBobbyRush
+"Rush, Bobby",RepBobbyRush
 "Kelly, Robin",RepRobinKelly
 "Lipinski, Daniel",RepLipinski
-"Garcia, Jesus “Chuy”",RepChuyGarcia
+"Garcia, Jesus",RepChuyGarcia
 "Quigley, Mike",RepMikeQuigley
 "Casten, Sean",RepCasten
 "Davis, Danny K.",RepDannyDavis
@@ -155,7 +155,7 @@
 "Walorski, Jackie",RepWalorski
 "Banks, Jim",Jim_Banks
 "Baird, James",RepJimBaird
-"Brooks, Susan W.",SusanWBrooks
+"Brooks, Susan",SusanWBrooks
 "Pence, Greg",RepGregPence
 "Carson, André",RepAndreCarson
 "Bucshon, Larry",RepLarryBucshon
@@ -169,8 +169,8 @@
 "Davids, Sharice",RepDavids
 "Estes, Ron",RepRonEstes
 "Comer, James",KYComer
-"Guthrie, S. Brett",RepGuthrie
-"Yarmuth, John A.",RepJohnYarmuth
+"Guthrie, Brett",RepGuthrie
+"Yarmuth, John",RepJohnYarmuth
 "Massie, Thomas",RepThomasMassie
 "Rogers, Harold",RepHalRogers
 "Barr, Andy",RepAndyBarr
@@ -184,20 +184,20 @@
 "Golden, Jared",RepGolden
 "Harris, Andy",RepAndyHarrisMD
 "Ruppersberger, C. A. Dutch",Call_Me_Dutch
-"Sarbanes, John P.",RepSarbanes
+"Sarbanes, John",RepSarbanes
 "Brown, Anthony",BrownforMD
-"Hoyer, Steny H.",WhipHoyer
+"Hoyer, Steny H",WhipHoyer
 "Trone, David",RepDavidTrone
 "Cummings, Elijah",RepCummings
 "Raskin, Jamie",Jamie_Raskin
 "Neal, Richard E.",RepRichardNeal
 "McGovern, James",RepMcGovern
 "Trahan, Lori",RepLoriTrahan
-"Kennedy III, Joseph P.",RepJoeKennedy
+"Kennedy, Joe III",RepJoeKennedy
 "Clark, Katherine",RepKClark
 "Moulton, Seth",teammoulton
 "Pressley, Ayanna",RepPressley
-"Lynch, Stephen F.",RepStephenLynch
+"Lynch, Stephen",RepStephenLynch
 "Keating, William",USRepKeating
 "Mitchell, Paul",PaulMitchell4us
 "Stevens, Haley",RepHaleyStevens
@@ -219,13 +219,13 @@
 "McCollum, Betty",BettyMcCollum04
 "Omar, Ilhan",Ilhan
 "Emmer, Tom",RepTomEmmer
-"Peterson, Collin C.",collinpeterson
+"Peterson, Collin",collinpeterson
 "Stauber, Pete",RepPeteStauber
 "Kelly, Trent",RepTrentKelly
-"Thompson, Bennie G.",BennieGThompson
+"Thompson, Bennie",BennieGThompson
 "Guest, Michael",RepMichaelGuest
 "Palazzo, Steven",CongPalazzo
-"Clay Jr., William “Lacy”",LacyClayMO1
+"Clay Jr., William",LacyClayMO1
 "Wagner, Ann",RepAnnWagner
 "Luetkemeyer, Blaine",RepBlainePress
 "Hartzler, Vicky",RepHartzler
@@ -251,19 +251,19 @@
 "Kim, Andy",RepAndyKimNJ
 "Smith, Chris",RepChrisSmith
 "Gottheimer, Josh",JoshGottheimer
-"Pallone Jr., Frank",FrankPallone
+"Pallone, Frank Jr",FrankPallone
 "Malinowski, Tom",RepMalinowski
 "Sires, Albio",RepSires
 "Pascrell Jr., Bill",BillPascrell
 "Haaland, Debra",RepDebHaaland
 "Torres Small, Xochiti",RepTorresSmall
-"Lujan, Ben R.",repbenraylujan
+"Lujan, Ben R",repbenraylujan
 "Nadler, Jerrold",RepJerryNadler
 "Rose, Max",RepMaxRose
-"Maloney, Carolyn",RepMaloney
+"Maloney, Carolyn B",RepMaloney
 "Espaillat, Adriano",EspaillatNY
 "Ocasio-Cortez, Alexandria",RepAOC
-"Serrano, José E.",RepJoseSerrano
+"Serrano, José",RepJoseSerrano
 "Engel, Eliot",RepEliotEngel
 "Lowey, Nita",NitaLowey
 "Maloney, Sean Patrick",RepSeanMaloney
@@ -280,18 +280,18 @@
 "King, Pete",RepPeteKing
 "Suozzi, Tom",Tom_Suozzi
 "Rice, Kathleen",RepKathleenRice
-"Meeks, Gregory W.",GregoryMeeks
+"Meeks, Gregory",GregoryMeeks
 "Meng, Grace",RepGraceMeng
-"Velázquez, Nydia M.",NydiaVelazquez
+"Velázquez, Nydia",NydiaVelazquez
 "Jeffries, Hakeem",RepJeffries
-"Clarke, Yvette D.",YvetteClarke
-"McHenry, Patrick T.",PatrickMcHenry
+"Clarke, Yvette",YvetteClarke
+"McHenry, Patrick",PatrickMcHenry
 "Meadows, Mark",RepMarkMeadows
 "Adams, Alma",RepAdams
 "Budd, Ted",BuddforCongress
-"Butterfield, G.K.",GKButterfield
+"Butterfield, G K",GKButterfield
 "Holding, George",GeorgeHolding
-"Jones, Walter B.",RepWalterJones
+"Jones, Walter",RepWalterJones
 "Price, David",RepDavidEPrice
 "Foxx, Virginia",virginiafoxx
 "Walker, Mark",RepMarkWalker
@@ -301,7 +301,7 @@
 "Armstrong, Kelly",RepArmstrongND
 "Sablan, Gregorio",#VALUE!
 "Turner, Michael",RepMikeTurner
-"Fudge, Marcia L.",RepMarciaFudge
+"Fudge, Marcia",RepMarciaFudge
 "Balderson, Troy",RepBalderson
 "Ryan, Tim",RepTimRyan
 "Joyce, David",RepDaveJoyce
@@ -311,7 +311,7 @@
 "Wenstrup, Brad",RepBradWenstrup
 "Beatty, Joyce",RepBeatty
 "Jordan, Jim",Jim_Jordan
-"Latta, Robert E.",boblatta
+"Latta, Robert E",boblatta
 "Johnson, Bill",RepBillJohnson
 "Gibbs, Bob",RepBobGibbs
 "Davidson, Warren",WarrenDavidson
@@ -352,7 +352,7 @@
 "Duncan, Jeff",RepJeffDuncan
 "Timmons, William",RepTimmons
 "Norman, Ralph",RepRalphNorman
-"Clyburn, James E.",Clyburn
+"Clyburn, James E",Clyburn
 "Rice, Tom",RepTomRice
 "Johnson, Dusty",RepDustyJohnson
 "Roe, Phil",DrPhilRoe
@@ -364,8 +364,8 @@
 "Green, Mark",RepMarkGreen
 "Kustoff, David",DavidKustoff
 "Cohen, Steve",RepCohen
-"McCaul, Michael T.",RepMcCaul
-"Conaway, K. Michael",ConawayTX11
+"McCaul, Michael",RepMcCaul
+"Conaway, Mike",ConawayTX11
 "Granger, Kay",RepKayGranger
 "Thornberry, Mac",MacTXPress
 "Weber, Randy",TXRandy14
@@ -402,15 +402,15 @@
 "Green, Al",RepAlGreen
 "Bishop, Rob",RepHalRogers
 "Stewart, Chris",RepChrisStewart
-"Curtis, John R.",RepJohnCurtis
+"Curtis, John",RepJohnCurtis
 "McAdams, Ben",RepBenMcAdams
 "Welch, Peter",PeterWelch
 "Plaskett, Stacey",StaceyPlaskett
 "Wexton, Jennifer",RepWexton
-"Connolly, Gerald E. “Gerry”",GerryConnolly
-"Wittman, Robert J.",RobWittman
+"Connolly, Gerald",GerryConnolly
+"Wittman, Rob",RobWittman
 "Luria, Elaine",RepElaineLuria
-"Scott, Robert C.",repbobbyscott
+"Scott, Robert",repbobbyscott
 "McEacchin, Donald",Donald_McEachin
 "Riggleman, Denver",RepRiggleman
 "Cline, Ben",RepBenCline
@@ -434,8 +434,8 @@
 "Pocan, Mark",repmarkpocan
 "Kind, Ron",RepRonKind
 "Moore, Gwen",RepGwenMoore
-"Sensenbrenner, F. James",JimPressOffice
+"Sensenbrenner, F James Jr",JimPressOffice
 "Grothman, Glenn",RepGrothman
-"Duffy, Sean P.",RepSeanDuffy
+"Duffy, Sean P",RepSeanDuffy
 "Gallagher, Mike",MikeforWI
 "Cheney, Liz",Liz_Cheney
