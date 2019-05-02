@@ -3,6 +3,8 @@ import json
 from sklearn import linear_model
 from sklearn.feature_extraction import DictVectorizer
 
+donorList = ["bloomberg", "fahr", "koch", "las_vegas_sands", "nra", "paloma", "planned_parenthood", "uline"]
+
 def learnPredictor(X, Y):
     classifier = linear_model.SGDClassifier()
     classifier.fit(X,Y)
@@ -19,8 +21,8 @@ def loadData():
     candidateNameList = []
     # index -> "handle"
     candidateTweetHandleList = []
-    # donor name -> donation amount
-    donationMap = {}
+    # donor name -> map of candidate ID to donation amounts
+    donorMap = {}
     with open("congress_tweet_handles_sorted.csv") as csv_file:
         csv_reader = csv.reader(csv_file)
         for row in csv_reader:
@@ -29,19 +31,20 @@ def loadData():
             candidateNameList.append(name)
             candidateTweetHandleList.append(handle)
 
-    with open("money_raised/money_raised.csv") as csv_file:
-        csv_reader = csv.reader(csv_file)
-        for row in csv_reader:
-            donationAmount = float(row[1][1:].replace(',',''))
-            if donationAmount < 1000000:
-                donationMap[row[0]] = 0
-            elif donationAmount < 10000000:
-                donationMap[row[0]] = 1
-            else:
-                donationMap[row[0]] = 2
-            #donationMap[row[0]] = float(row[1][1:].replace(',',''))
+    for donor in donorList:
+        donationAmounts = {}
+        with open("donors/" + donor + ".csv") as csv_file:
+            csv_reader = csv.reader(csv_file)
+            for row in csv_reader:
+                nameCluttered = row[0]
+                name = nameCluttered[:nameCluttered.index('(') - 1]
+                if name not in candidateNameList:
+                    continue
+                else:
+                    donationAmounts[candidateNameList.index(name)] = float(row[2][1:].replace(',',''))
+        donorMap[donor] = donationAmounts 
 
-    return candidateNameList, candidateTweetHandleList, donationMap
+    return candidateNameList, candidateTweetHandleList, donorMap
 
 def buildFeatureVectors(candidateTweetHandleList):
     candidateFeaturesList = []
@@ -63,28 +66,26 @@ def buildFeatureVectors(candidateTweetHandleList):
     vectors = dv.fit_transform(candidateFeaturesList)
     return vectors
         
-def evaluate(candidateFeatureVectorList, donationMap, train, test):
+def evaluate(donor, candidateFeatureVectorList, donorMap, train, test):
         X_train = []
         Y_train = []
         X_test = []
         Y_test = []
 
         for candidateId, candidate in enumerate(train):
-            if candidate in donationMap:
-                Y_train.append(donationMap[candidate])
-            else:
-                print("(train) Couldn't find: " + candidate)
-                continue
             X_train.append(candidateFeatureVectorList[candidateId])
+            if candidateId in donorMap[donor]:
+                Y_train.append(donorMap[donor][candidateId])
+            else:
+                Y_train.append(0.0)
         print("Gathered train data")
 
         for candidateId, candidate in enumerate(test):
-            if candidate in donationMap:
-                Y_test.append(donationMap[candidate])
-            else:
-                print("(test) Couldn't find: " + candidate)
-                continue 
             X_test.append(candidateFeatureVectorList[candidateId])
+            if candidateId in donorMap[donor]:
+                Y_test.append(donorMap[donor][candidateId])
+            else:
+                Y_test.append(0.0)
         print("Gathered test data")
 
         classifier = learnPredictor(X_train, Y_train)
@@ -93,21 +94,22 @@ def evaluate(candidateFeatureVectorList, donationMap, train, test):
         print(classifier.score(X_test, Y_test))
         print("Scored data")
         predictions = classifier.predict(X_test)
-        avg_error_rate = 0.0
-        avg_total_error = 0.0
+        avg_error_rate = 0.0 
+        avg_total_error = 0.0 
         for i, prediction in enumerate(predictions):
             avg_total_error += (abs(Y_test[i] - prediction) / float(len(predictions)))
             if Y_test[i] == 0:
                 avg_error_rate += abs(Y_test[i] - prediction)
-            else:
+            else:   
                 avg_error_rate += abs(Y_test[i] - prediction) / Y_test[i]
             print("wanted " + str(Y_test[i]) + " and got " + str(prediction))
         avg_error_rate /= float(len(predictions))
         print("Average error rate: " + str(avg_error_rate))
         print("Total error: " + str(avg_total_error))
 
+
 def main():
-    candidateNameList, candidateTweetHandleList, donationMap = loadData()
+    candidateNameList, candidateTweetHandleList, donorMap = loadData()
     print("Loaded data")
     candidateFeatureVectorList = buildFeatureVectors(candidateTweetHandleList)
     print("Loaded tweets")
@@ -119,6 +121,7 @@ def main():
     test = candidateNameList[train_test_boundary:]
     print("Divided data into train and test")
 
-    evaluate(candidateFeatureVectorList, donationMap, train, test)
+    for donor in donorList:
+        evaluate(donor, candidateFeatureVectorList, donorMap, train, test)
 
 main()
