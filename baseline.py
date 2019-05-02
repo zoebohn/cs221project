@@ -85,8 +85,26 @@ def evaluate(donor, candidateFeatureVectorList, donorMap, train, test):
         classifier = learnPredictor(X_train, Y_train)
         print "Classified data"
 
-        classifier.score(X_test, Y_test)
+        print classifier.score(X_test, Y_test)
         print "Scored data"
+        predictions = classifier.predict(X_test)
+        one_yay = 0
+        zero_yay = 0
+        zero_miss = 0
+        one_miss = 0
+        for i, prediction in enumerate(predictions):
+            if Y_test[i] == 1:
+                if prediction == Y_test[i]:
+                    one_yay += 1
+                else:
+                    one_miss += 1
+            else:
+                if prediction == Y_test[i]:
+                    zero_yay += 1
+                else:
+                    zero_miss += 1
+        print "Correctly classified " + str(one_yay) + " as getting donations out of a total of " + str(one_yay + one_miss) + " who did get donations in this test set."
+        print "Correctly classified " + str(zero_yay) + " as NOT getting donations out of a total of " + str(zero_yay + zero_miss) + " who did NOT get donations in this test set."
 
 def main():
     candidateNameList, candidateTweetHandleList, donorMap = loadData()
