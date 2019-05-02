@@ -30,7 +30,7 @@ def bagOfWordsExtractor(text):
 
 def collectExamplesForPolitician(handle, featureList, Y, featureExtractor, hasDonor):
     try:
-        with open("Tweets/" + handle + ".json") as json_file:
+        with open("Tweets_Final/" + handle + ".json") as json_file:
             data = json.load(json_file)
             for tweet in data:
                 features = featureExtractor(tweet)
