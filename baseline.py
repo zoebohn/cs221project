@@ -66,7 +66,7 @@ def buildFeatureVectors(candidateTweetHandleList):
     vectors = dv.fit_transform(candidateFeaturesList)
     return vectors
         
-def evaluate(candidateFeatureVectorList, donorMap, train, test):
+def evaluate(donor, candidateFeatureVectorList, donorMap, train, test):
         X_train = []
         Y_train = []
         X_test = []
@@ -102,6 +102,6 @@ def main():
     print "Divided data into train and test"
 
     for donor in donorList:
-        evaluate(candidateFeatureVectorList, donorMap, train, test)
+        evaluate(donor, candidateFeatureVectorList, donorMap, train, test)
 
 main()
