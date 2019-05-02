@@ -38,7 +38,7 @@ def collectExamplesForPolitician(handle, featureList, Y, featureExtractor, hasDo
                 featureList.append(features)
                 Y.append(hasDonor)
     except IOError:
-        print ("Can't find file: Tweets/" + handle + ".json")
+        print ("Can't find file: Tweets_Final/" + handle + ".json")
 
 def collectExamplesForDonor(donor, politicianFile, featureExtractor, candidateToHandleMap):
     recipients = []
