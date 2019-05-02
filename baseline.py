@@ -1,25 +1,11 @@
 import csv
 import json
 from sklearn import linear_model
+from sklearn.feature_extraction import DictVectorizer
 
-senateHandleToName = "senate_handles.csv"
-houseHandleToName = "house_handles.csv"
-donors = ["bloomberg", "fahr", "koch", "las_vegas_sands", "nra", "paloma", "planned_parenthood", "uline"]
-trainFile = "train.csv" 
-testFile = "test.csv"
-allWords = {}
-
-def getX(featureList):
-    X = []
-    for features in featureList:
-        tmp = []
-        for word in allWords:
-            tmp.append(1 if word in features else 0)
-        X.append(tmp)
-    return X
+donorList = ["bloomberg", "fahr", "koch", "las_vegas_sands", "nra", "paloma", "planned_parenthood", "uline"]
 
 def learnPredictor(X, Y):
-    print(X)
     classifier = linear_model.SGDClassifier()
     classifier.fit(X,Y)
     return classifier
@@ -28,64 +14,94 @@ def bagOfWordsExtractor(text):
     tweet = text["text"]
     return list(tweet.split())
 
-def collectExamplesForPolitician(handle, featureList, Y, featureExtractor, hasDonor):
-    try:
-        with open("Tweets_Final/" + handle + ".json") as json_file:
-            data = json.load(json_file)
-            for tweet in data:
-                features = featureExtractor(tweet)
-                allWords.update(dict.fromkeys(features))
-                featureList.append(features)
-                Y.append(hasDonor)
-    except IOError:
-        print ("Can't find file: Tweets_Final/" + handle + ".json")
 
-def collectExamplesForDonor(donor, politicianFile, featureExtractor, candidateToHandleMap):
-    recipients = []
-    featureList = []
-    Y = []
+def loadData():
 
-    with open("donors/" + donor + ".csv") as csv_file:
+    # index -> "last name, first name"
+    candidateNameList = []
+    # index -> "handle"
+    candidateTweetHandleList = []
+    # donor name -> set of candidate ID
+    donorMap = {}
+    with open("congress_tweet_handles_sorted.csv") as csv_file:
         csv_reader = csv.reader(csv_file)
         for row in csv_reader:
-            recipients.append(row)
+            name = row[0]
+            handle = row[1]
+            candidateNameList.append(name)
+            candidateTweetHandleList.append(handle)
 
-    with open(politicianFile) as csv_file:
-        csv_reader = csv.reader(csv_file)
-        for row in csv_reader:
-            collectExamplesForPolitician(candidateToHandleMap[row[0]], featureList, Y, featureExtractor, 1 if row[0] in recipients else 0)
+    for donor in donorList:
+        candidateIdSet = set()
+        with open("donors/" + donor + ".csv") as csv_file:
+            csv_reader = csv.reader(csv_file)
+            for row in csv_reader:
+                nameCluttered = row[0]
+                name = nameCluttered[:nameCluttered.index('(') - 1]
+                if name not in candidateNameList:
+                    continue
+                else:
+                    candidateIdSet.add(candidateNameList.index(name))
+        donorMap[donor] = candidateIdSet
 
-    return (featureList,Y)
+    return candidateNameList, candidateTweetHandleList, donorMap
 
-def buildCandidateToHandleMap():
-    candidateToHandleMap = {}
+def buildFeatureVectors(candidateTweetHandleList):
+    candidateFeaturesList = []
+    featureExtractor = bagOfWordsExtractor
 
-    with open(houseHandleToName) as csv_file:
-        csv_reader = csv.reader(csv_file)
-        for row in csv_reader:
-            candidateToHandleMap[row[0]] = row[1]
+    for candidateTweetHandle in candidateTweetHandleList:
+        candidateFeatures = {} 
+        try:
+            with open("Tweets_Final/" + candidateTweetHandle + ".json") as json_file:
+                data = json.load(json_file)
+                for tweet in data:
+                    features = featureExtractor(tweet)
+                    for feature in features:
+                        candidateFeatures[feature] = 1
+        except IOError:
+            print ("Can't find file: Tweets_Final/" + candidateTweetHandle + ".json")
+        candidateFeaturesList.append(candidateFeatures) 
+    dv = DictVectorizer(sparse=False)
+    vectors = dv.fit_transform(candidateFeaturesList)
+    return vectors
+        
+def evaluate(candidateFeatureVectorList, donorMap, train, test):
+        X_train = []
+        Y_train = []
+        X_test = []
+        Y_test = []
 
-    with open(senateHandleToName) as csv_file:
-        csv_reader = csv.reader(csv_file)
-        for row in csv_reader:
-            candidateToHandleMap[row[0]] = row[1]
+        for candidateId, candidate in enumerate(train):
+            X_train.append(candidateFeatureVectorList[candidateId])
+            Y_train.append(1 if candidateId in donorMap[donor] else 0)
+        print "Gathered train data"
 
-    return candidateToHandleMap
+        for candidateId, candidate in enumerate(test):
+            X_test.append(candidateFeatureVectorList[candidateId])
+            Y_test.append(1 if candidateId in donorMap[donor] else 0)
+        print "Gathered test data"
 
-def runDonor(donor, candidateToHandleMap):
-    print("Collecting training examples...")
-    trainExamples = collectExamplesForDonor(donor, trainFile, bagOfWordsExtractor, candidateToHandleMap)
-    print("Formatting features...")
-    X = getX(trainExamples[0])
-    print("Learning predictor...")
-    classifier = learnPredictor(X, trainExamples[1])
-    print("Collecting test examples...")
-    testExamples = collectExamplesForDonor(donor, testFile, bagOfWordsExtractor, candidateToHandleMap)
-    print("Formatting features...")
-    X = getX(testExamples[0])
-    print("Scoring...")
-    classifier.score(X, testExamples[1])
+        classifier = learnPredictor(X_train, Y_train)
+        print "Classified data"
 
-candidateToHandleMap = buildCandidateToHandleMap()
-for donor in donors:
-    runDonor(donor, candidateToHandleMap)
+        classifier.score(X_test, Y_test)
+        print "Scored data"
+
+def main():
+    candidateNameList, candidateTweetHandleList, donorMap = loadData()
+    print "Loaded data"
+    candidateFeatureVectorList = buildFeatureVectors(candidateTweetHandleList)
+    print "Loaded tweets"
+
+    numCandidates = len(candidateNameList)
+    # TODO - randomly shuffle order of candidates in file
+    train_test_boundary = int(numCandidates/2.0)
+    train = candidateNameList[:train_test_boundary]
+    test = candidateNameList[train_test_boundary:]
+    print "Divided data into train and test"
+
+    for donor in donorList:
+        evaluate(candidateFeatureVectorList, donorMap, train, test)
+
+main()
