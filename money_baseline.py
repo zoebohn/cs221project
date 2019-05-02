@@ -63,13 +63,21 @@ def evaluate(candidateFeatureVectorList, donationMap, train, test):
         Y_test = []
 
         for candidateId, candidate in enumerate(train):
+            if candidate in donationMap:
+                Y_train.append(donationMap[candidate])
+            else:
+                print("(train) Couldn't find: " + candidate)
+                continue
             X_train.append(candidateFeatureVectorList[candidateId])
-            Y_train.append(donationMap[candidate])
         print("Gathered train data")
 
         for candidateId, candidate in enumerate(test):
+            if candidate in donationMap:
+                Y_test.append(donationMap[candidate])
+            else:
+                print("(test) Couldn't find: " + candidate)
+                continue 
             X_test.append(candidateFeatureVectorList[candidateId])
-            Y_test.append(donationMap[candidate])
         print("Gathered test data")
 
         classifier = learnPredictor(X_train, Y_train)
@@ -97,6 +105,6 @@ def main():
     test = candidateNameList[train_test_boundary:]
     print("Divided data into train and test")
 
-    evaluate(donor, candidateFeatureVectorList, donorMap, train, test)
+    evaluate(candidateFeatureVectorList, donationMap, train, test)
 
 main()
