@@ -27,7 +27,8 @@ NEUTRAL_PARTISAN_ONLY = False
 def loadData():
 
     X_raw = [] # title
-    Y = [] # publisher_score
+    #Y = [] # publisher_score
+    publisher_to_title_map = {}
 
     publisher_to_score_map = {}
     matched_publishers = set()
@@ -55,11 +56,14 @@ def loadData():
                 publisher = publisherCluttered
             publisher_score = publisher_to_score_map.get(publisher, None)
             if publisher_score is not None:
-                X_raw.append(title)
-                Y.append(publisher_score)
+                if publisher not in publisher_to_title_map:
+                    publisher_to_title_map[publisher] = []
+                publisher_to_title_map[publisher].append(title)
+                #X_raw.append(title)
+                #Y.append(publisher_score)
                 matched_publishers.add(publisher)
     
-    print "Matched " + str(len(matched_publishers)) + " publishers out of possible " + str(len(publisher_to_score_map.keys()))
+    print("Matched " + str(len(matched_publishers)) + " publishers out of possible " + str(len(publisher_to_score_map.keys())))
 
     buckets = [0,0,0,0,0]
     pub_file = open("matched_pubs.txt", "w")
@@ -67,10 +71,10 @@ def loadData():
         buckets[publisher_to_score_map[publisher] + 2] += 1
         pub_file.write(publisher + str(publisher_to_score_map[publisher]) + "\n")
     pub_file.close()
-    print buckets
+    print(buckets)
 
 
-    return X_raw, Y 
+    return publisher_to_title_map, publisher_to_score_map
 
 def buildFeatureVectors(X_raw):
     X_map = []
@@ -88,14 +92,14 @@ def buildFeatureVectors(X_raw):
     return vectors
         
 def evaluate(X_train, Y_train, X_test, Y_test):
-        print str(len(X_train)) + " data points in our training set"
+        print(str(len(X_train)) + " data points in our training set")
         classifier = learnPredictor(X_train, Y_train)
-        print "Classified data"
+        print("Classified data")
 
-        print classifier.score(X_train, Y_train)
-        print "Scored train data^"
-        print classifier.score(X_test, Y_test)
-        print "Scored testing data^"
+        print(classifier.score(X_train, Y_train))
+        print("Scored train data")
+        print(classifier.score(X_test, Y_test))
+        print("Scored testing data")
         predictions = classifier.predict(X_test)
         buckets_correct = [0, 0, 0, 0, 0]
         buckets_guessed = [0, 0, 0, 0, 0]
@@ -106,23 +110,33 @@ def evaluate(X_train, Y_train, X_test, Y_test):
             buckets_guessed[prediction + 2] += 1
             buckets_total[Y_test[i] + 2] += 1
 
-        print buckets_correct
-        print buckets_guessed
-        print buckets_total
+        print(buckets_correct)
+        print(buckets_guessed)
+        print(buckets_total)
 
 def main():
-    X_raw, Y = loadData()
-    print "Loaded data"
-    X = buildFeatureVectors(X_raw)
-    print "Built feature vectors"
+    publisher_to_title, publisher_to_score = loadData()
+    print("Loaded data")
+    train_X_raw = []
+    train_Y = []
+    test_X_raw = []
+    test_Y = []
 
-    # TODO - randomly shuffle order 
-    train_test_boundary = int(len(Y)/2.0)
-    train_X = X[:train_test_boundary]
-    test_X = X[train_test_boundary:]
-    train_Y = Y[:train_test_boundary]
-    test_Y = Y[train_test_boundary:]
-    print "Divided data into train and test"
+    # TODO - randomly shuffle order
+    publisher_list = list(publisher_to_title.keys())
+    train_test_boundary = int(len(publisher_list)/2.0)
+    train_X = []
+    for i in range(train_test_boundary):
+        train_X_raw += publisher_to_title[publisher_list[i]]
+        train_Y += [publisher_to_score[publisher_list[i]]] * len(publisher_to_title[publisher_list[i]])
+    for i in range(train_test_boundary):
+        test_X_raw += publisher_to_title[publisher_list[i + train_test_boundary]]
+        test_Y += [publisher_to_score[publisher_list[i + train_test_boundary]]] * len(publisher_to_title[publisher_list[i + train_test_boundary]])
+
+    print("Split data into train and test")
+    train_X = buildFeatureVectors(train_X_raw)
+    test_X = buildFeatureVectors(test_X_raw)
+    print("Built feature vectors")
 
     evaluate(train_X, train_Y, test_X, test_Y)
 
