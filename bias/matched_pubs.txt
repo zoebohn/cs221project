@@ -1,119 +1,119 @@
-Daily Northwestern1
-San Francisco Chronicle2
-PoliticusUSA2
-The Justice1
-CNBC0
-The Verge1
-Vanity Fair1
-Washington Post1
-Commentary Magazine-2
-WFAE0
-Chicago Sun-Times1
-Longmont Times-Call1
-Bowling Green Daily News1
-Live Action News1
-Inside Philanthropy0
-Fox News Latino-2
-Daily Press0
-Politico1
-Right Side News-2
-Roll Call0
-The Nation2
-NBCNews.com1
-Austin American-Statesman1
-Chicago Tribune0
-Leesburg Today-1
-ThinkProgress2
-USA TODAY0
-WND.com-2
-Raw Story2
-Journalist's Resource0
-Washington Times-1
-Mother Jones2
-The Week0
-Socialist Alternative2
-Fox News-1
-American Thinker-2
-KQED0
-The Oracle0
-ABC News2
-Boston Herald-1
 RealClearPolitics0
-Democracy Now2
-Boing Boing2
-Reason-1
-Los Angeles Times1
-The American Conservative-1
-The New Yorker2
-City Journal-2
-Reuters0
-TechCrunch0
-Forbes0
-Media Research Center-2
-Grist1
-The Epoch Times-1
-New York Magazine2
-Daily Beast2
-Richmond Times Dispatch-1
-The Root1
-The Weekly Standard-2
-National Journal0
-Bloomberg0
-Deseret News-1
-FiveThirtyEight0
-Quartz0
-MIT News0
-PJ Media-1
-Western Journalism-2
-TheBlaze.com-2
-Washington Examiner-1
-BBC News0
-PBS NewsHour0
-The Atlantic1
-Defense One0
-CNSNews.com-2
-MSNBC2
-Barnstable Patriot0
-SFGate1
-The Korea Herald0
-Esquire2
-Vox2
-Pacific Standard1
-Indiana Daily Student0
-C-SPAN0
-ProPublica0
-The Economist1
-The Federalist-2
-The Hill0
-Duke Chronicle0
-New York Daily News2
-FrontPage Magazine-2
-Pittsburgh Post-Gazette-1
-Salon2
-Lifehacker0
-Diplomatic Courier0
-Christian Science Monitor0
 Mashable2
-Breitbart News-2
-Daily Mail-2
-San Jose Mercury News1
-Financial Times0
-The Guardian1
-RollingStone.com2
-PolitiFact1
-Honolulu Civil Beat0
-Mediaite1
-The Courier-Journal1
+Live Action News1
 American Spectator-2
-Business Insider0
-New York Post-1
-Scientific American0
-Investor's Business Daily-1
-Wisconsin Gazette1
-Foreign Affairs0
-International Business Times0
+Boing Boing2
+WND.com-2
+The Courier-Journal1
+Washington Times-1
+Democracy Now2
+Reason-1
+Leesburg Today-1
+Raw Story2
+Richmond Times Dispatch-1
+The Epoch Times-1
+Vanity Fair1
 CBS News1
+Grist1
+San Jose Mercury News1
+The Guardian1
+The American Conservative-1
+Scientific American0
+ProPublica0
+Mediaite1
+Wisconsin Gazette1
+Investor's Business Daily-1
 Watchdog.org-1
-State Journal1
-Washington Free Beacon-2
+Honolulu Civil Beat0
+Fox News-1
+Washington Examiner-1
+Chicago Sun-Times1
+Forbes0
+Vox2
+Defense One0
+TheBlaze.com-2
+Breitbart News-2
+Business Insider0
+The Nation2
+FrontPage Magazine-2
+Quartz0
+The Justice1
+The Korea Herald0
 SF Weekly0
+Chicago Tribune0
+Deseret News-1
+WFAE0
+TechCrunch0
+Barnstable Patriot0
+CNSNews.com-2
+Daily Northwestern1
+City Journal-2
+Financial Times0
+The New Yorker2
+MIT News0
+The Atlantic1
+NBCNews.com1
+Diplomatic Courier0
+Austin American-Statesman1
+CNBC0
+Christian Science Monitor0
+Mother Jones2
+The Root1
+International Business Times0
+Washington Post1
+Washington Free Beacon-2
+New York Magazine2
+Bowling Green Daily News1
+Reuters0
+Socialist Alternative2
+Duke Chronicle0
+Indiana Daily Student0
+The Oracle0
+The Hill0
+PBS NewsHour0
+San Francisco Chronicle2
+Longmont Times-Call1
+USA TODAY0
+Western Journalism-2
+Journalist's Resource0
+The Week0
+Foreign Affairs0
+American Thinker-2
+Bloomberg0
+Politico1
+Boston Herald-1
+The Verge1
+ThinkProgress2
+New York Daily News2
+Pittsburgh Post-Gazette-1
+Fox News Latino-2
+Salon2
+The Weekly Standard-2
+PJ Media-1
+Pacific Standard1
+New York Post-1
+State Journal1
+The Federalist-2
+Los Angeles Times1
+Right Side News-2
+BBC News0
+RollingStone.com2
+MSNBC2
+Daily Beast2
+Daily Press0
+Commentary Magazine-2
+C-SPAN0
+Lifehacker0
+Inside Philanthropy0
+The Economist1
+SFGate1
+FiveThirtyEight0
+Daily Mail-2
+National Journal0
+Media Research Center-2
+PoliticusUSA2
+KQED0
+ABC News2
+PolitiFact1
+Roll Call0
+Esquire2

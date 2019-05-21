@@ -2,11 +2,18 @@ import csv
 import json
 from sklearn import linear_model
 from sklearn.feature_extraction import DictVectorizer
+from nltk.stem import PorterStemmer
+from nltk.tokenize import sent_tokenize, word_tokenize
+
+ps = PorterStemmer()
 
 def learnPredictor(X, Y):
     classifier = linear_model.SGDClassifier()
     classifier.fit(X,Y)
     return classifier
+
+def stemmedBagOfWordsExtractor(text):
+    return [ps.stem(word) for word in text.split()]
 
 def bagOfWordsExtractor(text):
     return list(text.split())
@@ -78,7 +85,7 @@ def loadData():
 
 def buildFeatureVectors(X_raw):
     X_map = []
-    featureExtractor = nGramExtractor#bagOfWordsExtractor
+    featureExtractor = bagOfWordsExtractor#nGramExtractor#bagOfWordsExtractor
 
     for x in X_raw:
         featureMap = {}
@@ -134,9 +141,13 @@ def main():
         test_Y += [publisher_to_score[publisher_list[i + train_test_boundary]]] * len(publisher_to_title[publisher_list[i + train_test_boundary]])
 
     print("Split data into train and test")
-    train_X = buildFeatureVectors(train_X_raw)
-    test_X = buildFeatureVectors(test_X_raw)
+    splitPoint = len(train_X_raw)
+    combined_X = buildFeatureVectors(train_X_raw + test_X_raw)
+    train_X = combined_X[:splitPoint]
+    test_X = combined_X[splitPoint:]
     print("Built feature vectors")
+    print("len train_X: " + str(len(train_X)) + ", len train_Y: " + str(len(train_Y)))
+    print("len test_X: " + str(len(test_X)) + ", len test_Y: " + str(len(test_Y)))
 
     evaluate(train_X, train_Y, test_X, test_Y)
 
