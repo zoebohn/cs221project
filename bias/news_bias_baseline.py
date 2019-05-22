@@ -12,6 +12,8 @@ NEUTRAL_PARTISAN_ONLY = False
 LEFT_RIGHT_ONLY = False 
 NAIVE_BAYES = False 
 NGRAMS = True
+# What it sounds like... "publisher" to try to classify publisher, "bias" to try to classify bias
+BIAS_OR_PUBLISHER = "publisher"
 assert(not (NEUTRAL_PARTISAN_ONLY and LEFT_RIGHT_ONLY))
 
 def stemmedBagOfWordsExtractor(text):
@@ -36,7 +38,7 @@ def nGramExtractor(text):
 def loadData():
 
     X_raw = [] # title
-    #Y = [] # publisher_score
+    Y = [] # publisher_score
     publisher_to_title_map = {}
 
     publisher_to_score_map = {}
@@ -72,8 +74,8 @@ def loadData():
                 if publisher not in publisher_to_title_map:
                     publisher_to_title_map[publisher] = []
                 publisher_to_title_map[publisher].append(title)
-                #X_raw.append(title)
-                #Y.append(publisher_score)
+                X_raw.append(title)
+                Y.append(publisher)
                 matched_publishers.add(publisher)
     
     print("Matched " + str(len(matched_publishers)) + " publishers out of possible " + str(len(publisher_to_score_map.keys())))
@@ -87,7 +89,7 @@ def loadData():
     print(buckets)
 
 
-    return publisher_to_title_map, publisher_to_score_map
+    return X_raw, Y, publisher_to_title_map, publisher_to_score_map
 
 def buildFeatureVectors(X_raw):
     X_map = []
@@ -127,53 +129,71 @@ def evaluate(X_train, Y_train, X_test, Y_test):
         print(classifier.score(X_test, Y_test))
         print("Scored testing data")
         predictions = classifier.predict(X_test)
-        buckets_correct = [0, 0, 0, 0, 0]
-        buckets_guessed = [0, 0, 0, 0, 0]
-        buckets_total = [0, 0, 0, 0, 0]
-        for i, prediction in enumerate(predictions):
-            score = 1 if prediction == Y_test[i] else 0
-            buckets_correct[prediction + 2] += score
-            buckets_guessed[prediction + 2] += 1
-            buckets_total[Y_test[i] + 2] += 1
+        
+        if BIAS_OR_PUBLISHER is "bias":
+            buckets_correct = [0, 0, 0, 0, 0]
+            buckets_guessed = [0, 0, 0, 0, 0]
+            buckets_total = [0, 0, 0, 0, 0]
+            for i, prediction in enumerate(predictions):
+                score = 1 if prediction == Y_test[i] else 0
+                buckets_correct[prediction + 2] += score
+                buckets_guessed[prediction + 2] += 1
+                buckets_total[Y_test[i] + 2] += 1
 
-        print(buckets_correct)
-        print(buckets_guessed)
-        print(buckets_total)
+            print(buckets_correct)
+            print(buckets_guessed)
+            print(buckets_total)
 
 def main():
-    publisher_to_title, publisher_to_score = loadData()
-    print("Loaded data")
-    train_X_raw = []
+    train_X = []
     train_Y = []
-    test_X_raw = []
+    test_X = []
     test_Y = []
 
-    # TODO - randomly shuffle order
-    publisher_list = list(publisher_to_title.keys())
-    train_test_boundary = int(len(publisher_list)/2.0)
-    train_X = []
-    for i in range(train_test_boundary):
-        train_X_raw += publisher_to_title[publisher_list[i]]
-        train_Y += [publisher_to_score[publisher_list[i]]] * len(publisher_to_title[publisher_list[i]])
-    for i in range(train_test_boundary):
-        test_X_raw += publisher_to_title[publisher_list[i + train_test_boundary]]
-        test_Y += [publisher_to_score[publisher_list[i + train_test_boundary]]] * len(publisher_to_title[publisher_list[i + train_test_boundary]])
+    if BIAS_OR_PUBLISHER is "bias":
+        _, _, publisher_to_title, publisher_to_score = loadData()
+        print("Loaded data")
+        train_X_raw = []
+        test_X_raw = []
+        # TODO - randomly shuffle order
+        publisher_list = list(publisher_to_title.keys())
+        train_test_boundary = int(len(publisher_list)/2.0)
+        for i in range(train_test_boundary):
+            train_X_raw += publisher_to_title[publisher_list[i]]
+            train_Y += [publisher_to_score[publisher_list[i]]] * len(publisher_to_title[publisher_list[i]])
+        for i in range(train_test_boundary):
+            test_X_raw += publisher_to_title[publisher_list[i + train_test_boundary]]
+            test_Y += [publisher_to_score[publisher_list[i + train_test_boundary]]] * len(publisher_to_title[publisher_list[i + train_test_boundary]])
 
-    buckets = [0,0,0,0,0]
-    for i in range(train_test_boundary):
-        publisher = publisher_list[i]
-        buckets[publisher_to_score[publisher] + 2] += 1
-    print ("Train buckets:")
-    print(buckets)
-    
-    print("Split data into train and test")
-    splitPoint = len(train_X_raw)
-    combined_X = buildFeatureVectors(train_X_raw + test_X_raw)
-    train_X = combined_X[:splitPoint]
-    test_X = combined_X[splitPoint:]
-    print("Built feature vectors")
-    print("len train_X: " + str(len(train_X)) + ", len train_Y: " + str(len(train_Y)))
-    print("len test_X: " + str(len(test_X)) + ", len test_Y: " + str(len(test_Y)))
+        buckets = [0,0,0,0,0]
+        for i in range(train_test_boundary):
+            publisher = publisher_list[i]
+            buckets[publisher_to_score[publisher] + 2] += 1
+        print ("Train buckets:")
+        print(buckets)
+        
+        print("Split data into train and test")
+        splitPoint = len(train_X_raw)
+        combined_X = buildFeatureVectors(train_X_raw + test_X_raw)
+        train_X = combined_X[:splitPoint]
+        test_X = combined_X[splitPoint:]
+        print("Built feature vectors")
+        print("len train_X: " + str(len(train_X)) + ", len train_Y: " + str(len(train_Y)))
+        print("len test_X: " + str(len(test_X)) + ", len test_Y: " + str(len(test_Y)))
+
+    elif BIAS_OR_PUBLISHER is "publisher":
+        X_raw, Y, _, _ = loadData()
+        print("Loaded data")
+        X = buildFeatureVectors(X_raw)
+        print("Built feature vectors")
+
+        # TODO - randomly shuffle order
+        train_test_boundary = int(len(Y)/2.0)
+        train_X = X[:train_test_boundary]
+        test_X = X[train_test_boundary:]
+        train_Y = Y[:train_test_boundary]
+        test_Y = Y[train_test_boundary:]
+        print("Divided data into train and test")
 
     evaluate(train_X, train_Y, test_X, test_Y)
 
