@@ -10,10 +10,9 @@ from sklearn import metrics
 
 ps = PorterStemmer()
 NEUTRAL_PARTISAN_ONLY = False
-LEFT_RIGHT_ONLY = True
-NAIVE_BAYES = True
+LEFT_RIGHT_ONLY = False 
+NAIVE_BAYES = False 
 NGRAMS = True
-# What it sounds like... "publisher" to try to classify publisher, "bias" to try to classify bias
 GUESS_BIAS = False
 GUESS_PUBLISHER = False 
 GUESS_BIAS_OF_PUBLISHER = True
@@ -21,6 +20,25 @@ assert(not (NEUTRAL_PARTISAN_ONLY and LEFT_RIGHT_ONLY))
 assert(not (GUESS_BIAS and GUESS_PUBLISHER))
 assert(not (GUESS_BIAS and GUESS_BIAS_OF_PUBLISHER))
 assert(not (GUESS_PUBLISHER and GUESS_BIAS_OF_PUBLISHER))
+
+if NEUTRAL_PARTISAN_ONLY:
+    print "Neutral/Partisan Only"
+elif LEFT_RIGHT_ONLY:
+    print "Left/Right Only"
+else:
+    print "All Categories"
+if NAIVE_BAYES:
+    print "Naive Bayes"
+else:
+    print "Linear Regression"
+if NGRAMS:
+    print "Using ngrams"
+if GUESS_BIAS:
+    print "Guessing bias of individual articles titles..."
+if GUESS_PUBLISHER:
+    print "Guessing publisher from individual article titles..."
+if GUESS_BIAS_OF_PUBLISHER:
+    print "Guess bias of publisher from all article titles..."
 
 def stemmedBagOfWordsExtractor(text):
     return [ps.stem(word) for word in text.split()]

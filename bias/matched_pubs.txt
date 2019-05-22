@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 The Verge-1
 San Francisco Chronicle-1
 Vox-1
@@ -77,3 +78,124 @@ Boing Boing-1
 Austin American-Statesman-1
 The Courier-Journal-1
 Salon-1
+=======
+Austin American-Statesman1
+Financial Times0
+The Courier-Journal1
+International Business Times0
+ProPublica0
+Honolulu Civil Beat0
+The Atlantic1
+Reuters0
+PJ Media-1
+SF Weekly0
+Western Journalism-2
+Reason-1
+ThinkProgress2
+Boston Herald-1
+Fox News-1
+New York Daily News2
+NBCNews.com1
+Christian Science Monitor0
+Watchdog.org-1
+Vanity Fair1
+CBS News1
+Business Insider0
+Pittsburgh Post-Gazette-1
+The Hill0
+Washington Times-1
+C-SPAN0
+American Thinker-2
+Chicago Tribune0
+The New Yorker2
+The Justice1
+CNSNews.com-2
+National Journal0
+Lifehacker0
+Roll Call0
+Live Action News1
+RollingStone.com2
+Washington Free Beacon-2
+TheBlaze.com-2
+Los Angeles Times1
+WND.com-2
+The Nation2
+Bowling Green Daily News1
+Washington Examiner-1
+MSNBC2
+PolitiFact1
+American Spectator-2
+Inside Philanthropy0
+Barnstable Patriot0
+Defense One0
+The Korea Herald0
+Longmont Times-Call1
+Wisconsin Gazette1
+New York Post-1
+The Verge1
+Daily Beast2
+Fox News Latino-2
+SFGate1
+Vox2
+San Jose Mercury News1
+Boing Boing2
+San Francisco Chronicle2
+CNBC0
+Raw Story2
+Mashable2
+The Guardian1
+Pacific Standard1
+Quartz0
+Media Research Center-2
+FiveThirtyEight0
+Scientific American0
+City Journal-2
+Mother Jones2
+TechCrunch0
+KQED0
+The Oracle0
+Daily Press0
+Democracy Now2
+PBS NewsHour0
+New York Magazine2
+Chicago Sun-Times1
+FrontPage Magazine-2
+The American Conservative-1
+Diplomatic Courier0
+Daily Northwestern1
+Duke Chronicle0
+Right Side News-2
+The Weekly Standard-2
+Socialist Alternative2
+Investor's Business Daily-1
+Richmond Times Dispatch-1
+Commentary Magazine-2
+Breitbart News-2
+The Root1
+BBC News0
+Esquire2
+Forbes0
+Washington Post1
+The Economist1
+Journalist's Resource0
+Leesburg Today-1
+Deseret News-1
+State Journal1
+Bloomberg0
+RealClearPolitics0
+The Epoch Times-1
+Daily Mail-2
+Grist1
+Foreign Affairs0
+The Week0
+ABC News2
+WFAE0
+USA TODAY0
+Indiana Daily Student0
+Salon2
+Politico1
+The Federalist-2
+PoliticusUSA2
+Mediaite1
+MIT News0
+>>>>>>> dcb6a6d026319daf0929962029151eb3e929bd9e
