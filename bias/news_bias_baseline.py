@@ -53,7 +53,7 @@ def loadData():
             score = None
             if NEUTRAL_PARTISAN_ONLY:
                 score = 0 if int(row[1]) == 0 else 1
-            if LEFT_RIGHT_ONLY:
+            elif LEFT_RIGHT_ONLY:
                 if int(row[1]) == 0:
                     continue
                 score = -1 if int(row[1]) > 0 else 1
@@ -281,8 +281,8 @@ def master_main():
     GUESS_PUBLISHER = False 
     GUESS_BIAS_OF_PUBLISHER = False 
     main()
-    NEUTRAL_PARTISAN_ONLY = True
-    main()
+    #NEUTRAL_PARTISAN_ONLY = True
+    #main()
     NEUTRAL_PARTISAN_ONLY = False
     LEFT_RIGHT_ONLY = True
     main()
@@ -290,8 +290,8 @@ def master_main():
     LEFT_RIGHT_ONLY = False
     NGRAMS = True
     #main() commented out b/c times out right now
-    NEUTRAL_PARTISAN_ONLY = True
-    main()
+    #NEUTRAL_PARTISAN_ONLY = True
+    #main()
     NEUTRAL_PARTISAN_ONLY = False
     LEFT_RIGHT_ONLY = True
     main()
@@ -300,8 +300,8 @@ def master_main():
     LEFT_RIGHT_ONLY = False
     NAIVE_BAYES = True
     main()
-    NEUTRAL_PARTISAN_ONLY = True
-    main()
+    #NEUTRAL_PARTISAN_ONLY = True
+    #main()
     NEUTRAL_PARTISAN_ONLY = False
     LEFT_RIGHT_ONLY = True
     main()
@@ -309,8 +309,8 @@ def master_main():
     LEFT_RIGHT_ONLY = False
     NGRAMS = True
     #main() commented out b/c times out right now
-    NEUTRAL_PARTISAN_ONLY = True
-    main()
+    #NEUTRAL_PARTISAN_ONLY = True
+    #main()
     NEUTRAL_PARTISAN_ONLY = False
     LEFT_RIGHT_ONLY = True
     main()
@@ -326,8 +326,8 @@ def master_main():
     GUESS_PUBLISHER = True 
     GUESS_BIAS_OF_PUBLISHER = False 
     main()
-    NEUTRAL_PARTISAN_ONLY = True
-    main()
+    #NEUTRAL_PARTISAN_ONLY = True
+    #main()
     NEUTRAL_PARTISAN_ONLY = False
     LEFT_RIGHT_ONLY = True
     main()
@@ -335,8 +335,8 @@ def master_main():
     LEFT_RIGHT_ONLY = False
     NGRAMS = True
     #main() commented out b/c times out right now
-    NEUTRAL_PARTISAN_ONLY = True
-    main()
+    #NEUTRAL_PARTISAN_ONLY = True
+    #main()
     NEUTRAL_PARTISAN_ONLY = False
     LEFT_RIGHT_ONLY = True
     main()
@@ -345,8 +345,8 @@ def master_main():
     LEFT_RIGHT_ONLY = False
     NAIVE_BAYES = True
     main()
-    NEUTRAL_PARTISAN_ONLY = True
-    main()
+    #NEUTRAL_PARTISAN_ONLY = True
+    #main()
     NEUTRAL_PARTISAN_ONLY = False
     LEFT_RIGHT_ONLY = True
     main()
@@ -354,8 +354,8 @@ def master_main():
     LEFT_RIGHT_ONLY = False
     NGRAMS = True
     #main() commented out b/c times out right now
-    NEUTRAL_PARTISAN_ONLY = True
-    main()
+    #NEUTRAL_PARTISAN_ONLY = True
+    #main()
     NEUTRAL_PARTISAN_ONLY = False
     LEFT_RIGHT_ONLY = True
     main()
@@ -371,8 +371,8 @@ def master_main():
     GUESS_PUBLISHER = False 
     GUESS_BIAS_OF_PUBLISHER = True 
     main()
-    NEUTRAL_PARTISAN_ONLY = True
-    main()
+    #NEUTRAL_PARTISAN_ONLY = True
+    #main()
     NEUTRAL_PARTISAN_ONLY = False
     LEFT_RIGHT_ONLY = True
     main()
@@ -380,8 +380,8 @@ def master_main():
     LEFT_RIGHT_ONLY = False
     NGRAMS = True
     #main() commented out b/c times out right now
-    NEUTRAL_PARTISAN_ONLY = True
-    main()
+    #NEUTRAL_PARTISAN_ONLY = True
+    #main()
     NEUTRAL_PARTISAN_ONLY = False
     LEFT_RIGHT_ONLY = True
     main()
@@ -390,8 +390,8 @@ def master_main():
     LEFT_RIGHT_ONLY = False
     NAIVE_BAYES = True
     main()
-    NEUTRAL_PARTISAN_ONLY = True
-    main()
+    #NEUTRAL_PARTISAN_ONLY = True
+    #main()
     NEUTRAL_PARTISAN_ONLY = False
     LEFT_RIGHT_ONLY = True
     main()
@@ -399,8 +399,8 @@ def master_main():
     LEFT_RIGHT_ONLY = False
     NGRAMS = True
     #main() commented out b/c times out right now
-    NEUTRAL_PARTISAN_ONLY = True
-    main()
+    #NEUTRAL_PARTISAN_ONLY = True
+    #main()
     NEUTRAL_PARTISAN_ONLY = False
     LEFT_RIGHT_ONLY = True
     main()
