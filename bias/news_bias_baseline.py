@@ -9,8 +9,8 @@ from sklearn import metrics
 
 ps = PorterStemmer()
 NEUTRAL_PARTISAN_ONLY = False
-LEFT_RIGHT_ONLY = True
-NAIVE_BAYES = True
+LEFT_RIGHT_ONLY = False 
+NAIVE_BAYES = False 
 NGRAMS = True
 assert(not (NEUTRAL_PARTISAN_ONLY and LEFT_RIGHT_ONLY))
 
