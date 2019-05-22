@@ -11,7 +11,7 @@ from sklearn import metrics
 ps = PorterStemmer()
 NEUTRAL_PARTISAN_ONLY = False
 LEFT_RIGHT_ONLY = False 
-NAIVE_BAYES = False 
+NAIVE_BAYES = True 
 NGRAMS = True
 GUESS_BIAS = False
 GUESS_PUBLISHER = False 
@@ -22,23 +22,23 @@ assert(not (GUESS_BIAS and GUESS_BIAS_OF_PUBLISHER))
 assert(not (GUESS_PUBLISHER and GUESS_BIAS_OF_PUBLISHER))
 
 if NEUTRAL_PARTISAN_ONLY:
-    print "Neutral/Partisan Only"
+    print("Neutral/Partisan Only")
 elif LEFT_RIGHT_ONLY:
-    print "Left/Right Only"
+    print("Left/Right Only")
 else:
-    print "All Categories"
+    print("All Categories")
 if NAIVE_BAYES:
-    print "Naive Bayes"
+    print("Naive Bayes")
 else:
-    print "Linear Regression"
+    print("Linear Regression")
 if NGRAMS:
-    print "Using ngrams"
+    print("Using ngrams")
 if GUESS_BIAS:
-    print "Guessing bias of individual articles titles..."
+    print("Guessing bias of individual articles titles...")
 if GUESS_PUBLISHER:
-    print "Guessing publisher from individual article titles..."
+    print("Guessing publisher from individual article titles...")
 if GUESS_BIAS_OF_PUBLISHER:
-    print "Guess bias of publisher from all article titles..."
+    print("Guess bias of publisher from all article titles...")
 
 def stemmedBagOfWordsExtractor(text):
     return [ps.stem(word) for word in text.split()]
@@ -86,6 +86,8 @@ def loadData():
     with open("news-articles.csv", "rU") as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=",")
         for row in csv_reader:
+            if len(row) < 2:
+                print(row)
             title = row[1]
             publisherCluttered = row[3]
             publisher = None

@@ -1,263 +1,213 @@
-ABC News,2
-Al Jazeera,0
-AlterNet,2
-American Spectator,-2
-American Thinker,-2
-Aquinas College Saint,2
-Arkansas Democrat-Gazette,2
-Associated Press,0
-Atlanta Journal-Constitution,1
-Austin American-Statesman,1
-Axios,0
-Barnstable Patriot,0
-BBC News,0
-Bearing Drift,-2
-Bloomberg,0
-Blue Virginia,2
-Boing Boing,2
-Boston Herald,-1
-Boston Herald Editorial,-1
-Bowling Green Daily News,1
-Breitbart News,-2
-Business Insider,0
-Bustle,1
-BuzzFeed News,1
-C-SPAN,0
-CalMatters,0
-CalWatchdog,0
-Care 2,2
-CBN,-2
-CBS News,1
-Center - Major Media Sources,0
-Center for Public Integrity,1
-Centre View,1
-Chicago Sun-Times,1
-Chicago Tribune,0
-Christian Science Monitor,0
-City Journal,-2
-CNBC,0
-CNN (Web News),1
-CNN - Editorial,2
-CNS News,-2
-CNSNews.com,-2
-Commentary Magazine,-2
-Conservative HQ,-2
-Cook Report,0
-Countable,0
-Counter Currents,1
-CrowdPAC,0
-CU Independent,0
-Current Affairs,2
-Daily Beast,2
-Daily Cardinal,0
-Daily Kos,2
-Daily Mail,-2
-Daily Northwestern,1
-Daily Press,0
-Daily Progress,2
-Daily Targum,-1
-Defense One,0
-Democracy Now,2
-Deseret News,-1
-Diplomatic Courier,0
-Drudge Report,-1
-Duke Chronicle,0
-Esquire,2
-Estes Park Trail Gazette,0
-Eurek Alert,0
-Fact Checker Blog,0
-FactCheck.org,0
-Fair.org,0
-Falls Church News - Press,2
-Financial Times,0
-Fiscal Times,-1
-FiveThirtyEight,0
-Forbes,0
-Foreign Affairs,0
-Fox News,-1
-Fox News Editorial,-2
-Fox News Latino,-2
-FrontPage Magazine,-2
-Grist,1
-Hampton Roads Messanger,0
-Harvard Business School,1
-Herald Democrat,2
-Honolulu Civil Beat,0
-HotAir,-1
-How Do We Fix It?,0
-Howard Kurtz,0
-HuffPost,2
-Inacow,-2
-Independent Journal Review,-1
-Indiana Daily Student,0
-Indy Online,0
-Indy Week,1
-InfoWars,-2
-Inside Philanthropy,0
-Intellectual Conservative,-1
 International Business Times,0
-Investor's Business Daily,-1
-IVN,0
-Jacobin,2
-Journalist's Resource,0
-Jubilee Media,0
-Judicial Watch,-1
-KQED,0
-KSL,-2
-Las Vegas Sun,1
-Leesburg Today,-1
-Left - Major Media Sources,2
-Lifehacker,0
-Live Action News,1
-Longmont Times-Call,1
-Los Angeles Times,1
-Louisville Courier-Journal,1
-Mashable,2
-Media Matters,2
-Media Research Center,-2
-Mediaite,1
-Miami Herald,1
-MichelleMalkin.com,-2
-Michigan Daily,1
-MIT News,0
-Mother Jones,2
-MSNBC,2
-MTV News Online,1
-National Journal,0
-National Review,-2
-NBC Today Show,1
-NBCNews.com,1
-New Republic,2
-New York Daily News,2
-New York Magazine,2
-New York Post,-1
-New York Times - News,1
-New York Times - Opinion,2
-Newsmax,-2
-Newsweek,1
-NMPolitics.net,0
-NPR Editorial,1
-NPR News,0
-One America News Network,-1
-Orange County Register,-1
-Pacific Standard,1
-PBS NewsHour,0
-Peacock Panache,2
-Pittsburgh Post-Gazette,-1
-PJ Media,-1
-Politico,1
-PoliticusUSA,2
-PolitiFact,1
-Portland Press Herald,0
-PRI (Public Radio International),0
-Progressive Voices of Iowa,2
-ProPublica,0
-PXW News,0
-Quartz,0
-Quillette,-1
-Rasmussen Reports,0
-Raw Story,2
-RealClearPolitics,0
-Reason,-1
-Record Journal,0
-Red State,-2
-Reuters,0
-Richmond Times Dispatch,-1
-Right - Major Media Sources,-2
-Right Side News,-2
-Right Wing News,-2
-Roll Call,0
-RollingStone.com,2
-Salon,2
-San Francisco Chronicle,2
 San Jose Mercury News,1
-Saturday Evening Post,0
-Science Daily,0
+Reuters,0
+CNBC,0
 Scientific American,0
-SF Weekly,0
-SFGate,1
-Sky-Hi Daily News,1
-Slate,2
-Smerconish,0
-Socialist Alternative,2
-Socialist Project/The Bullet,2
-Splinter,2
-Spokesman Review,1
-State Journal,1
-Tallahassee Democrat,0
-TechCrunch,0
-Teen Vogue,1
-Test Source,0
-The Advocate-Messenger,1
-The American Conservative,-1
-The Atlantic,1
-The Boston Globe,1
-The Cadiz Record,1
-The Canyon County Zephyr,2
-The College Fix,-2
-The Commercial Appeal,1
-The Courier-Journal,1
-The Daily Caller,-2
-The Daily Show (humor),1
-The Daily Signal,-2
-The Daily Wire,-2
-The Delaware County Daily Times,1
-The Economist,1
-The Epoch Times,-1
-The Federalist,-2
-The Gateway Pundit,-2
-The Guardian,1
-The Hill,0
-The Intercept,2
-The Jerusalem Post,0
-The Justice,1
-The Korea Herald,0
-The Libertarian Republic,-1
-The Nation,2
-The New Yorker,2
-The Observer (New York),0
-The Oracle,0
-The Philadelphia Inquirer,1
-The Red and Black,0
-The Reliable Bias,0
-The Republican,0
-The Resurgent,-2
-The Root,1
-The Sacramento Bee,1
-The Saturday Evening Post,0
-The Telegraph - UK,-1
-The Verge,1
-The Week,0
-The Weekly Standard,-2
-TheBlaze.com,-2
-ThinkProgress,2
-Time Magazine,1
-Townhall,-2
-Truth or Fiction,0
+NPR News,0
 TruthOut,1
-U.S. News & World Report,1
-Univision,1
-Upworthy,2
-USA TODAY,0
-Vanity Fair,1
-Vice,2
-Volante,0
-Vox,2
-VT Digger,1
-Wake Up to Politics,0
-Wall Street Journal - Editorial,-1
-Wall Street Journal - News,0
-Washington Examiner,-1
-Washington Free Beacon,-2
-Washington Monthly,1
-Washington Post,1
-Washington Times,-1
-Watchdog.org,-1
-Western Journalism,-2
-WFAE,0
-WGBH,0
-Whatfinger News,-2
-Wisconsin Gazette,1
-WND.com,-2
-Yahoo! News,2
 Yes! Magazine,2
+Howard Kurtz,0
+Jacobin,2
+Falls Church News - Press,2
+The Delaware County Daily Times,1
+Lifehacker,0
+Commentary Magazine,-2
+Deseret News,-1
+The Sacramento Bee,1
+Cook Report,0
+Associated Press,0
+The Republican,0
+Reason,-1
+TheBlaze.com,-2
+RealClearPolitics,0
+Bustle,1
+Center - Major Media Sources,0
+New Republic,2
+Boston Herald,-1
+Time Magazine,1
+Washington Times,-1
+PolitiFact,1
+The Commercial Appeal,1
+CNN (Web News),1
+CNS News,-2
+One America News Network,-1
+Smerconish,0
+The Cadiz Record,1
+New York Daily News,2
+Test Source,0
+Live Action News,1
+The Jerusalem Post,0
+Chicago Tribune,0
+American Thinker,-2
+WGBH,0
+Indy Online,0
+USA TODAY,0
+NBCNews.com,1
+SF Weekly,0
+Breitbart News,-2
+Chicago Sun-Times,1
+The Daily Wire,-2
+The Observer (New York),0
+The Korea Herald,0
+U.S. News & World Report,1
+Tallahassee Democrat,0
+Townhall,-2
+Quillette,-1
+Vice,2
+Left - Major Media Sources,2
+Atlanta Journal-Constitution,1
+Pittsburgh Post-Gazette,-1
+Bowling Green Daily News,1
+Democracy Now,2
+BBC News,0
+FiveThirtyEight,0
+PXW News,0
+The Telegraph - UK,-1
+The Libertarian Republic,-1
+TechCrunch,0
+Eurek Alert,0
+Univision,1
+Centre View,1
+ABC News,2
+Fiscal Times,-1
+C-SPAN,0
+Vanity Fair,1
+ProPublica,0
+PRI (Public Radio International),0
+Socialist Project/The Bullet,2
+Fox News Latino,-2
+Leesburg Today,-1
+Right Side News,-2
+Saturday Evening Post,0
+Diplomatic Courier,0
+WND.com,-2
+The American Conservative,-1
+Austin American-Statesman,1
+Journalist's Resource,0
+KSL,-2
+MIT News,0
+ThinkProgress,2
+Daily Cardinal,0
+New York Magazine,2
+RollingStone.com,2
+Hampton Roads Messanger,0
+Salon,2
+Mother Jones,2
+FactCheck.org,0
+Right Wing News,-2
+Progressive Voices of Iowa,2
+Indiana Daily Student,0
+Louisville Courier-Journal,1
+Inside Philanthropy,0
+Washington Examiner,-1
+New York Post,-1
+Herald Democrat,2
+SFGate,1
+Media Research Center,-2
+Washington Free Beacon,-2
+Daily Press,0
+PoliticusUSA,2
+Truth or Fiction,0
+CNSNews.com,-2
+Politico,1
+Daily Northwestern,1
+Jubilee Media,0
+National Journal,0
+AlterNet,2
+The Red and Black,0
+Care 2,2
+Boing Boing,2
+New York Times - Opinion,2
+Western Journalism,-2
+The Canyon County Zephyr,2
+Daily Mail,-2
+Esquire,2
+State Journal,1
+Fox News Editorial,-2
+Washington Post,1
+Investor's Business Daily,-1
+The Verge,1
+Los Angeles Times,1
+IVN,0
+Forbes,0
+CrowdPAC,0
+Whatfinger News,-2
+The Advocate-Messenger,1
+The Intercept,2
+HuffPost,2
+Conservative HQ,-2
+The Federalist,-2
+Intellectual Conservative,-1
+KQED,0
+CalMatters,0
+San Francisco Chronicle,2
+Wall Street Journal - News,0
+Newsmax,-2
+Volante,0
+Michigan Daily,1
+Grist,1
+Barnstable Patriot,0
+City Journal,-2
+The Boston Globe,1
+Bloomberg,0
+Counter Currents,1
+Rasmussen Reports,0
+Center for Public Integrity,1
+Harvard Business School,1
+Arkansas Democrat-Gazette,2
+Raw Story,2
+The Daily Signal,-2
+NBC Today Show,1
+FrontPage Magazine,-2
+Blue Virginia,2
+Mediaite,1
+How Do We Fix It?,0
+Red State,-2
+The College Fix,-2
+Independent Journal Review,-1
+WFAE,0
+Estes Park Trail Gazette,0
+Quartz,0
+NMPolitics.net,0
+The Hill,0
+Fair.org,0
+Science Daily,0
+Aquinas College Saint,2
+Newsweek,1
+Yahoo! News,2
+The Saturday Evening Post,0
+Roll Call,0
+PBS NewsHour,0
+InfoWars,-2
+Media Matters,2
+Sky-Hi Daily News,1
+Fox News,-1
+CU Independent,0
+New York Times - News,1
+Socialist Alternative,2
+Duke Chronicle,0
+Richmond Times Dispatch,-1
+Portland Press Herald,0
+Fact Checker Blog,0
+BuzzFeed News,1
+The Reliable Bias,0
+Daily Kos,2
+Mashable,2
+Current Affairs,2
+Orange County Register,-1
+Miami Herald,1
+Defense One,0
+Las Vegas Sun,1
+Wake Up to Politics,0
+American Spectator,-2
+The Daily Caller,-2
+National Review,-2
+Wisconsin Gazette,1
+Daily Targum,-1
+Longmont Times-Call,1
+Pacific Standard,1
+The Gateway Pundit,-2
+The Daily Show (humor),1
+The Oracle,0
+HotAir,-1
+Indy Week,1
