@@ -4,13 +4,17 @@ from sklearn import linear_model
 from sklearn.feature_extraction import DictVectorizer
 from nltk.stem import PorterStemmer
 from nltk.tokenize import sent_tokenize, word_tokenize
+from sklearn.naive_bayes import MultinomialNB
+from sklearn import metrics
 
 ps = PorterStemmer()
-
-def learnPredictor(X, Y):
-    classifier = linear_model.SGDClassifier()
-    classifier.fit(X,Y)
-    return classifier
+NEUTRAL_PARTISAN_ONLY = False
+LEFT_RIGHT_ONLY = True
+NAIVE_BAYES = True
+NGRAMS = True
+# What it sounds like... "publisher" to try to classify publisher, "bias" to try to classify bias
+BIAS_OR_PUBLISHER = "publisher"
+assert(not (NEUTRAL_PARTISAN_ONLY and LEFT_RIGHT_ONLY))
 
 def stemmedBagOfWordsExtractor(text):
     return [ps.stem(word) for word in text.split()]
@@ -24,15 +28,13 @@ def nGramExtractor(text):
     ngrams = []
     for i in range(len(words) - ngram_length + 1):
         ngram = words[i]
+        ngrams.append(ngram)
         for j in range(i + 1, i + ngram_length):
             ngram += " "
             ngram += words[j]
         ngrams.append(ngram)
     return ngrams
 
-NEUTRAL_PARTISAN_ONLY = False
-# What it sounds like... "publisher" to try to classify publisher, "bias" to try to classify bias
-BIAS_OR_PUBLISHER = "publisher"
 def loadData():
 
     X_raw = [] # title
@@ -49,6 +51,10 @@ def loadData():
             score = None
             if NEUTRAL_PARTISAN_ONLY:
                 score = 0 if int(row[1]) == 0 else 1
+            if LEFT_RIGHT_ONLY:
+                if int(row[1]) == 0:
+                    continue
+                score = -1 if int(row[1]) > 0 else 1
             else:
                 score = int(row[1])
             publisher_to_score_map[publisher] = score
@@ -87,7 +93,11 @@ def loadData():
 
 def buildFeatureVectors(X_raw):
     X_map = []
-    featureExtractor = bagOfWordsExtractor#nGramExtractor#bagOfWordsExtractor
+    featureExtractor = None
+    if NGRAMS:
+        featureExtractor = nGramExtractor
+    else:
+        featureExtractor = bagOfWordsExtractor
 
     for x in X_raw:
         featureMap = {}
@@ -102,7 +112,16 @@ def buildFeatureVectors(X_raw):
         
 def evaluate(X_train, Y_train, X_test, Y_test):
         print(str(len(X_train)) + " data points in our training set")
-        classifier = learnPredictor(X_train, Y_train)
+
+        classifier = None
+        if NAIVE_BAYES:
+            print("Using Naive Bayes")
+            classifier = MultinomialNB()
+            classifier.fit(X_train, Y_train)
+        else:
+            classifier = linear_model.SGDClassifier()
+            classifier.fit(X_train, Y_train)
+        
         print("Classified data")
 
         print(classifier.score(X_train, Y_train))
@@ -144,6 +163,13 @@ def main():
             test_X_raw += publisher_to_title[publisher_list[i + train_test_boundary]]
             test_Y += [publisher_to_score[publisher_list[i + train_test_boundary]]] * len(publisher_to_title[publisher_list[i + train_test_boundary]])
 
+        buckets = [0,0,0,0,0]
+        for i in range(train_test_boundary):
+            publisher = publisher_list[i]
+            buckets[publisher_to_score[publisher] + 2] += 1
+        print ("Train buckets:")
+        print(buckets)
+        
         print("Split data into train and test")
         splitPoint = len(train_X_raw)
         combined_X = buildFeatureVectors(train_X_raw + test_X_raw)
