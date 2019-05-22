@@ -10,16 +10,12 @@ from sklearn.metrics import confusion_matrix
 
 ps = PorterStemmer()
 NEUTRAL_PARTISAN_ONLY = False
-LEFT_RIGHT_ONLY = True 
+LEFT_RIGHT_ONLY = False 
 NAIVE_BAYES = False 
-NGRAMS = True
+NGRAMS = False 
 GUESS_BIAS = False
 GUESS_PUBLISHER = False 
-GUESS_BIAS_OF_PUBLISHER = True
-assert(not (NEUTRAL_PARTISAN_ONLY and LEFT_RIGHT_ONLY))
-assert(not (GUESS_BIAS and GUESS_PUBLISHER))
-assert(not (GUESS_BIAS and GUESS_BIAS_OF_PUBLISHER))
-assert(not (GUESS_PUBLISHER and GUESS_BIAS_OF_PUBLISHER))
+GUESS_BIAS_OF_PUBLISHER = False 
 
 if NEUTRAL_PARTISAN_ONLY:
     print("Neutral/Partisan Only")
@@ -173,6 +169,11 @@ def evaluate(X_train, Y_train, X_test, Y_test):
             print confusion_matrix(Y_test, predictions)
 
 def main():
+    assert(not (NEUTRAL_PARTISAN_ONLY and LEFT_RIGHT_ONLY))
+    assert(not (GUESS_BIAS and GUESS_PUBLISHER))
+    assert(not (GUESS_BIAS and GUESS_BIAS_OF_PUBLISHER))
+    assert(not (GUESS_PUBLISHER and GUESS_BIAS_OF_PUBLISHER))
+    
     train_X = []
     train_Y = []
     test_X = []
@@ -258,4 +259,151 @@ def main():
 
     evaluate(train_X, train_Y, test_X, test_Y)
 
-main()
+def master_main():
+   
+    global NAIVE_BAYES 
+    global NEUTRAL_PARTISAN_ONLY 
+    global LEFT_RIGHT_ONLY 
+    global NGRAMS 
+    global GUESS_BIAS 
+    global GUESS_PUBLISHER 
+    global GUESS_BIAS_OF_PUBLISHER 
+    
+    print("Starting (normal): article titles -> articles bias prints")
+
+    # logistic regression, no ngrams
+    NAIVE_BAYES = False 
+    NEUTRAL_PARTISAN_ONLY = False
+    LEFT_RIGHT_ONLY = False 
+    NGRAMS = False 
+    GUESS_BIAS = True
+    GUESS_PUBLISHER = False 
+    GUESS_BIAS_OF_PUBLISHER = False 
+    main()
+    NEUTRAL_PARTISAN_ONLY = True
+    main()
+    NEUTRAL_PARTISAN_ONLY = False
+    LEFT_RIGHT_ONLY = True
+    main()
+    # logistic regression, with ngrams
+    LEFT_RIGHT_ONLY = False
+    NGRAMS = True
+    #main() commented out b/c times out right now
+    NEUTRAL_PARTISAN_ONLY = True
+    main()
+    NEUTRAL_PARTISAN_ONLY = False
+    LEFT_RIGHT_ONLY = True
+    main()
+    # naive bayes, no ngrams
+    NGRAMS = False
+    LEFT_RIGHT_ONLY = False
+    NAIVE_BAYES = True
+    main()
+    NEUTRAL_PARTISAN_ONLY = True
+    main()
+    NEUTRAL_PARTISAN_ONLY = False
+    LEFT_RIGHT_ONLY = True
+    main()
+    # naive bayes, with ngrams
+    LEFT_RIGHT_ONLY = False
+    NGRAMS = True
+    #main() commented out b/c times out right now
+    NEUTRAL_PARTISAN_ONLY = True
+    main()
+    NEUTRAL_PARTISAN_ONLY = False
+    LEFT_RIGHT_ONLY = True
+    main()
+    
+    print("Starting article -> publisher prints")
+
+    # article -> publisher
+    NAIVE_BAYES = False 
+    NEUTRAL_PARTISAN_ONLY = False
+    LEFT_RIGHT_ONLY = False 
+    NGRAMS = False 
+    GUESS_BIAS = False 
+    GUESS_PUBLISHER = True 
+    GUESS_BIAS_OF_PUBLISHER = False 
+    main()
+    NEUTRAL_PARTISAN_ONLY = True
+    main()
+    NEUTRAL_PARTISAN_ONLY = False
+    LEFT_RIGHT_ONLY = True
+    main()
+    # logistic regression, with ngrams
+    LEFT_RIGHT_ONLY = False
+    NGRAMS = True
+    #main() commented out b/c times out right now
+    NEUTRAL_PARTISAN_ONLY = True
+    main()
+    NEUTRAL_PARTISAN_ONLY = False
+    LEFT_RIGHT_ONLY = True
+    main()
+    # naive bayes, no ngrams
+    NGRAMS = False
+    LEFT_RIGHT_ONLY = False
+    NAIVE_BAYES = True
+    main()
+    NEUTRAL_PARTISAN_ONLY = True
+    main()
+    NEUTRAL_PARTISAN_ONLY = False
+    LEFT_RIGHT_ONLY = True
+    main()
+    # naive bayes, with ngrams
+    LEFT_RIGHT_ONLY = False
+    NGRAMS = True
+    #main() commented out b/c times out right now
+    NEUTRAL_PARTISAN_ONLY = True
+    main()
+    NEUTRAL_PARTISAN_ONLY = False
+    LEFT_RIGHT_ONLY = True
+    main()
+    
+    print("Starting articles -> publisher bias prints")
+
+    # articles -> publisher bias
+    NAIVE_BAYES = False 
+    NEUTRAL_PARTISAN_ONLY = False
+    LEFT_RIGHT_ONLY = False 
+    NGRAMS = False 
+    GUESS_BIAS = False 
+    GUESS_PUBLISHER = False 
+    GUESS_BIAS_OF_PUBLISHER = True 
+    main()
+    NEUTRAL_PARTISAN_ONLY = True
+    main()
+    NEUTRAL_PARTISAN_ONLY = False
+    LEFT_RIGHT_ONLY = True
+    main()
+    # logistic regression, with ngrams
+    LEFT_RIGHT_ONLY = False
+    NGRAMS = True
+    #main() commented out b/c times out right now
+    NEUTRAL_PARTISAN_ONLY = True
+    main()
+    NEUTRAL_PARTISAN_ONLY = False
+    LEFT_RIGHT_ONLY = True
+    main()
+    # naive bayes, no ngrams
+    NGRAMS = False
+    LEFT_RIGHT_ONLY = False
+    NAIVE_BAYES = True
+    main()
+    NEUTRAL_PARTISAN_ONLY = True
+    main()
+    NEUTRAL_PARTISAN_ONLY = False
+    LEFT_RIGHT_ONLY = True
+    main()
+    # naive bayes, with ngrams
+    LEFT_RIGHT_ONLY = False
+    NGRAMS = True
+    #main() commented out b/c times out right now
+    NEUTRAL_PARTISAN_ONLY = True
+    main()
+    NEUTRAL_PARTISAN_ONLY = False
+    LEFT_RIGHT_ONLY = True
+    main()
+    
+    
+
+master_main()
