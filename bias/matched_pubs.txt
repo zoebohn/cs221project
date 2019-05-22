@@ -1,79 +1,79 @@
-The Nation-1
-Raw Story-1
-The Courier-Journal-1
-Washington Times1
-Deseret News1
-Right Side News1
-The Guardian-1
-The Epoch Times1
-MSNBC-1
-The Weekly Standard1
-Mother Jones-1
-Vox-1
-Breitbart News1
-Wisconsin Gazette-1
-The American Conservative1
-San Francisco Chronicle-1
-New York Daily News-1
-Chicago Sun-Times-1
-Boston Herald1
-PolitiFact-1
-American Spectator1
-San Jose Mercury News-1
-Watchdog.org1
-SFGate-1
-PoliticusUSA-1
-Commentary Magazine1
+Longmont Times-Call-1
+Western Journalism1
 PJ Media1
-The Justice-1
-Socialist Alternative-1
-New York Post1
+Raw Story-1
+Salon-1
+Right Side News1
 Mediaite-1
-The Atlantic-1
-Daily Mail1
-Grist-1
-The Root-1
-Richmond Times Dispatch1
-CBS News-1
-Politico-1
-Washington Free Beacon1
-Pittsburgh Post-Gazette1
-CNSNews.com1
-WND.com1
-Democracy Now-1
+Daily Northwestern-1
+Boston Herald1
+Bowling Green Daily News-1
+The Guardian-1
+Los Angeles Times-1
+Deseret News1
+The Federalist1
 Fox News Latino1
 New York Magazine-1
-Mashable-1
-Pacific Standard-1
-ABC News-1
-Media Research Center1
-Longmont Times-Call-1
-Investor's Business Daily1
-TheBlaze.com1
-The New Yorker-1
-The Federalist1
-RollingStone.com-1
 Washington Post-1
-American Thinker1
-NBCNews.com-1
-Bowling Green Daily News-1
-State Journal-1
-ThinkProgress-1
-Daily Northwestern-1
-Daily Beast-1
-Vanity Fair-1
-Boing Boing-1
-Los Angeles Times-1
-Fox News1
-Reason1
-Salon-1
-Western Journalism1
-The Economist-1
-Esquire-1
-The Verge-1
-FrontPage Magazine1
-Washington Examiner1
-City Journal1
-Austin American-Statesman-1
 Live Action News-1
+CNSNews.com1
+Mashable-1
+Democracy Now-1
+Richmond Times Dispatch1
+Washington Free Beacon1
+City Journal1
+Wisconsin Gazette-1
+PolitiFact-1
+The New Yorker-1
+Daily Mail1
+Reason1
+Esquire-1
+Boing Boing-1
+RollingStone.com-1
+Daily Beast-1
+American Spectator1
+ABC News-1
+The Economist-1
+The Root-1
+New York Daily News-1
+Watchdog.org1
+Chicago Sun-Times-1
+ThinkProgress-1
 Leesburg Today1
+Media Research Center1
+Investor's Business Daily1
+Washington Examiner1
+The Justice-1
+The Weekly Standard1
+WND.com1
+Politico-1
+The Courier-Journal-1
+Mother Jones-1
+Breitbart News1
+NBCNews.com-1
+The Verge-1
+The Epoch Times1
+San Francisco Chronicle-1
+CBS News-1
+MSNBC-1
+TheBlaze.com1
+The American Conservative1
+Pacific Standard-1
+San Jose Mercury News-1
+Socialist Alternative-1
+PoliticusUSA-1
+The Nation-1
+New York Post1
+Fox News1
+Austin American-Statesman-1
+FrontPage Magazine1
+Commentary Magazine1
+Vanity Fair-1
+The Atlantic-1
+Pittsburgh Post-Gazette1
+Washington Times1
+SFGate-1
+American Thinker1
+Vox-1
+Grist-1
+State Journal-1

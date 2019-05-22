@@ -1,5 +1,6 @@
 import csv
 import json
+import itertools
 from sklearn import linear_model
 from sklearn.feature_extraction import DictVectorizer
 from nltk.stem import PorterStemmer
@@ -13,7 +14,9 @@ LEFT_RIGHT_ONLY = True
 NAIVE_BAYES = True
 NGRAMS = True
 # What it sounds like... "publisher" to try to classify publisher, "bias" to try to classify bias
-BIAS_OR_PUBLISHER = "publisher"
+GUESS_BIAS = True
+GUESS_PUBLISHER = True
+GUESS_BIAS_OF_PUBLISHER = True
 assert(not (NEUTRAL_PARTISAN_ONLY and LEFT_RIGHT_ONLY))
 
 def stemmedBagOfWordsExtractor(text):
@@ -130,7 +133,7 @@ def evaluate(X_train, Y_train, X_test, Y_test):
         print("Scored testing data")
         predictions = classifier.predict(X_test)
         
-        if BIAS_OR_PUBLISHER is "bias":
+        if GUESS_BIAS or GUESS_BIAS_OF_PUBLISHER:
             buckets_correct = [0, 0, 0, 0, 0]
             buckets_guessed = [0, 0, 0, 0, 0]
             buckets_total = [0, 0, 0, 0, 0]
@@ -150,7 +153,40 @@ def main():
     test_X = []
     test_Y = []
 
-    if BIAS_OR_PUBLISHER is "bias":
+    if GUESS_BIAS_OF_PUBLISHER:
+        _, _, publisher_to_title, publisher_to_score = loadData()
+        print("Loaded data")
+        train_X_raw = []
+        test_X_raw = []
+        # TODO - randomly shuffle order
+        publisher_list = list(publisher_to_title.keys())
+        train_test_boundary = int(len(publisher_list)/2.0)
+        for i in range(train_test_boundary):
+            train_X_raw.append(" ".join(publisher_to_title[publisher_list[i]]))
+            train_Y.append(publisher_to_score[publisher_list[i]])
+        for i in range(train_test_boundary):
+            test_X_raw.append(" ".join(publisher_to_title[publisher_list[i + train_test_boundary]]))
+            test_Y.append(publisher_to_score[publisher_list[i + train_test_boundary]])
+
+        buckets = [0,0,0,0,0]
+        for i in range(train_test_boundary):
+            publisher = publisher_list[i]
+            buckets[publisher_to_score[publisher] + 2] += 1
+        print ("Train buckets:")
+        print(buckets)
+        
+        print("Split data into train and test")
+        splitPoint = len(train_X_raw)
+        combined_X = buildFeatureVectors(train_X_raw + test_X_raw)
+        train_X = combined_X[:splitPoint]
+        test_X = combined_X[splitPoint:]
+        print("Built feature vectors")
+        print("len train_X: " + str(len(train_X)) + ", len train_Y: " + str(len(train_Y)))
+        print("len test_X: " + str(len(test_X)) + ", len test_Y: " + str(len(test_Y)))
+
+
+
+    if GUESS_BIAS:
         _, _, publisher_to_title, publisher_to_score = loadData()
         print("Loaded data")
         train_X_raw = []
@@ -181,7 +217,7 @@ def main():
         print("len train_X: " + str(len(train_X)) + ", len train_Y: " + str(len(train_Y)))
         print("len test_X: " + str(len(test_X)) + ", len test_Y: " + str(len(test_Y)))
 
-    elif BIAS_OR_PUBLISHER is "publisher":
+    elif GUESS_PUBLISHER:
         X_raw, Y, _, _ = loadData()
         print("Loaded data")
         X = buildFeatureVectors(X_raw)
