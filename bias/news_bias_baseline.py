@@ -129,18 +129,20 @@ def evaluate(X_train, Y_train, X_test, Y_test):
         print(classifier.score(X_test, Y_test))
         print("Scored testing data")
         predictions = classifier.predict(X_test)
-        buckets_correct = [0, 0, 0, 0, 0]
-        buckets_guessed = [0, 0, 0, 0, 0]
-        buckets_total = [0, 0, 0, 0, 0]
-        for i, prediction in enumerate(predictions):
-            score = 1 if prediction == Y_test[i] else 0
-            buckets_correct[prediction + 2] += score
-            buckets_guessed[prediction + 2] += 1
-            buckets_total[Y_test[i] + 2] += 1
+        
+        if BIAS_OR_PUBLISHER is "bias":
+            buckets_correct = [0, 0, 0, 0, 0]
+            buckets_guessed = [0, 0, 0, 0, 0]
+            buckets_total = [0, 0, 0, 0, 0]
+            for i, prediction in enumerate(predictions):
+                score = 1 if prediction == Y_test[i] else 0
+                buckets_correct[prediction + 2] += score
+                buckets_guessed[prediction + 2] += 1
+                buckets_total[Y_test[i] + 2] += 1
 
-        print(buckets_correct)
-        print(buckets_guessed)
-        print(buckets_total)
+            print(buckets_correct)
+            print(buckets_guessed)
+            print(buckets_total)
 
 def main():
     train_X = []

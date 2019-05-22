@@ -1,201 +1,79 @@
-<<<<<<< HEAD
-American Spectator-2
-Fox News Latino-2
-Investor's Business Daily-1
-Breitbart News-2
-Journalist's Resource0
-ThinkProgress2
-The Root1
-Commentary Magazine-2
-Socialist Alternative2
-Inside Philanthropy0
-The Guardian1
-PJ Media-1
-NBCNews.com1
-The Epoch Times-1
-The Courier-Journal1
-Christian Science Monitor0
-Democracy Now2
-WND.com-2
-SF Weekly0
-KQED0
-Politico1
-Pacific Standard1
-USA TODAY0
-Austin American-Statesman1
-Grist1
-PoliticusUSA2
-Financial Times0
-Business Insider0
-CNBC0
-San Jose Mercury News1
-The Week0
-Duke Chronicle0
-Forbes0
-Media Research Center-2
-The Atlantic1
-Washington Times-1
-Longmont Times-Call1
-Mashable2
-International Business Times0
-The New Yorker2
-Foreign Affairs0
-TechCrunch0
-FrontPage Magazine-2
-Washington Examiner-1
-MIT News0
-Defense One0
-Richmond Times Dispatch-1
-Mediaite1
-Reuters0
-ABC News2
-Diplomatic Courier0
-Live Action News1
-Boston Herald-1
-Lifehacker0
-Daily Mail-2
-San Francisco Chronicle2
-C-SPAN0
-Boing Boing2
-PBS NewsHour0
-The Verge1
-City Journal-2
-Scientific American0
-The Economist1
-Mother Jones2
-CNSNews.com-2
-Daily Beast2
-Western Journalism-2
-FiveThirtyEight0
-Leesburg Today-1
-Daily Press0
-CBS News1
-Daily Northwestern1
-The Justice1
-MSNBC2
-The Korea Herald0
-New York Post-1
-WFAE0
-Honolulu Civil Beat0
-The American Conservative-1
-Wisconsin Gazette1
-Bowling Green Daily News1
-BBC News0
-Raw Story2
-New York Magazine2
-The Nation2
-State Journal1
-American Thinker-2
-The Federalist-2
-Bloomberg0
-SFGate1
-National Journal0
-Vox2
-Washington Post1
-Pittsburgh Post-Gazette-1
-RealClearPolitics0
-Esquire2
-Chicago Sun-Times1
-Vanity Fair1
-Washington Free Beacon-2
-Deseret News-1
-Watchdog.org-1
-PolitiFact1
-Reason-1
-Roll Call0
-Right Side News-2
-The Hill0
-Chicago Tribune0
-Los Angeles Times1
-New York Daily News2
-Salon2
-Indiana Daily Student0
-Barnstable Patriot0
-ProPublica0
-Quartz0
-The Oracle0
-TheBlaze.com-2
-Fox News-1
-RollingStone.com2
-The Weekly Standard-2
-=======
-Raw Story-1
-Los Angeles Times-1
-WND.com1
 The Nation-1
+Raw Story-1
 The Courier-Journal-1
-The New Yorker-1
-The Justice-1
-Pittsburgh Post-Gazette1
-The Atlantic-1
-The Weekly Standard1
-Bowling Green Daily News-1
-Washington Examiner1
-PJ Media1
-Washington Post-1
-Austin American-Statesman-1
+Washington Times1
+Deseret News1
+Right Side News1
 The Guardian-1
-Pacific Standard-1
+The Epoch Times1
 MSNBC-1
+The Weekly Standard1
+Mother Jones-1
+Vox-1
+Breitbart News1
+Wisconsin Gazette-1
+The American Conservative1
+San Francisco Chronicle-1
+New York Daily News-1
+Chicago Sun-Times-1
+Boston Herald1
 PolitiFact-1
 American Spectator1
-Wisconsin Gazette-1
-Richmond Times Dispatch1
-Boing Boing-1
-Media Research Center1
-Mediaite-1
-Deseret News1
-Leesburg Today1
-Western Journalism1
-State Journal-1
-The Economist-1
-Reason1
-RollingStone.com-1
-City Journal1
-Boston Herald1
-The Epoch Times1
-Fox News1
-Daily Mail1
-NBCNews.com-1
-The American Conservative1
-Grist-1
-Watchdog.org1
-Vanity Fair-1
-CBS News-1
-FrontPage Magazine1
-Longmont Times-Call-1
-Washington Times1
-New York Magazine-1
-CNSNews.com1
-American Thinker1
-Breitbart News1
-San Francisco Chronicle-1
-ABC News-1
-Democracy Now-1
-New York Post1
-PoliticusUSA-1
-Daily Northwestern-1
-The Verge-1
-Daily Beast-1
-Salon-1
-Right Side News1
-Esquire-1
-Politico-1
-Fox News Latino1
-Socialist Alternative-1
-SFGate-1
-Mother Jones-1
-Investor's Business Daily1
 San Jose Mercury News-1
-Chicago Sun-Times-1
-The Federalist1
-Live Action News-1
-Mashable-1
+Watchdog.org1
+SFGate-1
+PoliticusUSA-1
 Commentary Magazine1
-New York Daily News-1
-Washington Free Beacon1
-ThinkProgress-1
+PJ Media1
+The Justice-1
+Socialist Alternative-1
+New York Post1
+Mediaite-1
+The Atlantic-1
+Daily Mail1
+Grist-1
 The Root-1
-Vox-1
+Richmond Times Dispatch1
+CBS News-1
+Politico-1
+Washington Free Beacon1
+Pittsburgh Post-Gazette1
+CNSNews.com1
+WND.com1
+Democracy Now-1
+Fox News Latino1
+New York Magazine-1
+Mashable-1
+Pacific Standard-1
+ABC News-1
+Media Research Center1
+Longmont Times-Call-1
+Investor's Business Daily1
 TheBlaze.com1
->>>>>>> bb028d24c1c3f36a5811562d910913af08db520c
+The New Yorker-1
+The Federalist1
+RollingStone.com-1
+Washington Post-1
+American Thinker1
+NBCNews.com-1
+Bowling Green Daily News-1
+State Journal-1
+ThinkProgress-1
+Daily Northwestern-1
+Daily Beast-1
+Vanity Fair-1
+Boing Boing-1
+Los Angeles Times-1
+Fox News1
+Reason1
+Salon-1
+Western Journalism1
+The Economist-1
+Esquire-1
+The Verge-1
+FrontPage Magazine1
+Washington Examiner1
+City Journal1
+Austin American-Statesman-1
+Live Action News-1
+Leesburg Today1
