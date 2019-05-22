@@ -6,12 +6,12 @@ from sklearn.feature_extraction import DictVectorizer
 from nltk.stem import PorterStemmer
 from nltk.tokenize import sent_tokenize, word_tokenize
 from sklearn.naive_bayes import MultinomialNB
-from sklearn import metrics
+from sklearn.metrics import confusion_matrix
 
 ps = PorterStemmer()
 NEUTRAL_PARTISAN_ONLY = False
-LEFT_RIGHT_ONLY = False 
-NAIVE_BAYES = True 
+LEFT_RIGHT_ONLY = True 
+NAIVE_BAYES = False 
 NGRAMS = True
 GUESS_BIAS = False
 GUESS_PUBLISHER = False 
@@ -165,10 +165,12 @@ def evaluate(X_train, Y_train, X_test, Y_test):
                 buckets_correct[prediction + 2] += score
                 buckets_guessed[prediction + 2] += 1
                 buckets_total[Y_test[i] + 2] += 1
-
+            
             print(buckets_correct)
             print(buckets_guessed)
             print(buckets_total)
+            print "Confusion Matrix:"
+            print confusion_matrix(Y_test, predictions)
 
 def main():
     train_X = []
