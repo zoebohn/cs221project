@@ -13,8 +13,21 @@ LEFT_RIGHT_ONLY = False
 NAIVE_BAYES = False 
 NGRAMS = True
 # What it sounds like... "publisher" to try to classify publisher, "bias" to try to classify bias
-BIAS_OR_PUBLISHER = "publisher"
+BIAS_OR_PUBLISHER = "bias"
 assert(not (NEUTRAL_PARTISAN_ONLY and LEFT_RIGHT_ONLY))
+
+if NEUTRAL_PARTISAN_ONLY:
+    print "Neutral/Partisan Only"
+elif LEFT_RIGHT_ONLY:
+    print "Left/Right Only"
+else:
+    print "All Categories"
+if NAIVE_BAYES:
+    print "Naive Bayes"
+else:
+    print "Linear Regression"
+if NGRAMS:
+    print "Using ngrams"
 
 def stemmedBagOfWordsExtractor(text):
     return [ps.stem(word) for word in text.split()]
