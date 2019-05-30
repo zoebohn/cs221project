@@ -338,6 +338,7 @@ def master_main():
 
     # article -> publisher
     NAIVE_BAYES = False 
+    NAIVE_BAYES_COM = False 
     NEUTRAL_PARTISAN_ONLY = False
     LEFT_RIGHT_ONLY = False 
     NGRAMS = False 
@@ -391,6 +392,7 @@ def master_main():
 
     # articles -> publisher bias
     NAIVE_BAYES = False 
+    NAIVE_BAYES_COM = False 
     NEUTRAL_PARTISAN_ONLY = False
     LEFT_RIGHT_ONLY = False 
     NGRAMS = False 
