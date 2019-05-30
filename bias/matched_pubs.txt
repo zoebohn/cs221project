@@ -4,12 +4,10 @@ ProPublica0
 PoliticusUSA2
 Reuters0
 SF Weekly0
-Western Journalism-2
 Reason-1
-ThinkProgress2
 Boston Herald-1
 Fox News-1
-New York Daily News2
+Breitbart News-2
 NBCNews.com1
 Leesburg Today-1
 Pittsburgh Post-Gazette-1
@@ -23,9 +21,9 @@ National Journal0
 Lifehacker0
 Roll Call0
 Live Action News1
-RollingStone.com2
+Mashable2
 Washington Free Beacon-2
-Investor's Business Daily-1
+TheBlaze.com-2
 Los Angeles Times1
 WND.com-2
 Bowling Green Daily News1
@@ -34,7 +32,8 @@ PolitiFact1
 American Spectator-2
 Inside Philanthropy0
 Barnstable Patriot0
-Richmond Times Dispatch-1
+Investor's Business Daily-1
+RollingStone.com2
 The Korea Herald0
 Longmont Times-Call1
 Wisconsin Gazette1
@@ -42,18 +41,18 @@ New York Post-1
 The Verge1
 Fox News Latino-2
 SFGate1
-City Journal-2
+BBC News0
 San Jose Mercury News1
 Boing Boing2
 San Francisco Chronicle2
 CNBC0
 Raw Story2
-Mashable2
 Pacific Standard1
 Quartz0
 Media Research Center-2
 FiveThirtyEight0
 Scientific American0
+Richmond Times Dispatch-1
 Mother Jones2
 TechCrunch0
 KQED0
@@ -70,17 +69,18 @@ Daily Northwestern1
 Duke Chronicle0
 Right Side News-2
 Socialist Alternative2
-TheBlaze.com-2
+Western Journalism-2
 Defense One0
 Commentary Magazine-2
-Breitbart News-2
-BBC News0
+New York Daily News2
+City Journal-2
 Washington Post1
 Forbes0
 Esquire2
 Indiana Daily Student0
 Journalist's Resource0
 Vanity Fair1
+Mediaite1
 Deseret News-1
 State Journal1
 Bloomberg0
@@ -94,4 +94,4 @@ USA TODAY0
 Salon2
 Politico1
 The Federalist-2
-Mediaite1
+ThinkProgress2

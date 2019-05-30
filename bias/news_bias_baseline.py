@@ -6,12 +6,14 @@ from sklearn.feature_extraction import DictVectorizer
 from nltk.stem import PorterStemmer
 from nltk.tokenize import sent_tokenize, word_tokenize
 from sklearn.naive_bayes import MultinomialNB
+from sklearn.naive_bayes import BernoulliNB
 from sklearn.metrics import confusion_matrix
 
 ps = PorterStemmer()
 NEUTRAL_PARTISAN_ONLY = False
 LEFT_RIGHT_ONLY = False 
-NAIVE_BAYES = False 
+NAIVE_BAYES = False
+NAIVE_BAYES_COM = False
 NGRAMS = False 
 GUESS_BIAS = False
 GUESS_PUBLISHER = False 
@@ -61,11 +63,12 @@ def loadData():
                 score = int(row[1])
             publisher_to_score_map[publisher] = score
 
-    with open("news-articles.csv", "rU") as csv_file:
+    with open("shuffled_news_article.csv", "rU") as csv_file:
+    #with open("news-articles.csv", "rU") as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=",")
         for row in csv_reader:
-            if len(row) < 2:
-                print(row)
+            if len(row) < 8:
+                continue
             title = row[1]
             publisherCluttered = row[3]
             publisher = None
@@ -122,6 +125,11 @@ def evaluate(X_train, Y_train, X_test, Y_test):
             print("Using Naive Bayes")
             classifier = MultinomialNB()
             classifier.fit(X_train, Y_train)
+        elif NAIVE_BAYES_COM:
+            print("Using Naive Bayes alternate")
+            classifier = BernoulliNB()
+            #classifier = ComplementNB()
+            classifier.fit(X_train, Y_train)
         else:
             classifier = linear_model.SGDClassifier()
             classifier.fit(X_train, Y_train)
@@ -147,8 +155,8 @@ def evaluate(X_train, Y_train, X_test, Y_test):
             print(buckets_correct)
             print(buckets_guessed)
             print(buckets_total)
-            print "Confusion Matrix:"
-            print confusion_matrix(Y_test, predictions)
+            print("Confusion Matrix:")
+            print(confusion_matrix(Y_test, predictions))
 
 def main():
     assert(not (NEUTRAL_PARTISAN_ONLY and LEFT_RIGHT_ONLY))
@@ -164,6 +172,8 @@ def main():
         print("All Categories")
     if NAIVE_BAYES:
         print("Naive Bayes")
+    elif NAIVE_BAYES_COM:
+        print ("Naive Bayes alternate")
     else:
         print("Linear Regression")
     if NGRAMS:
@@ -218,7 +228,6 @@ def main():
         print("Loaded data")
         train_X_raw = []
         test_X_raw = []
-        # TODO - randomly shuffle order
         publisher_list = list(publisher_to_title.keys())
         train_test_boundary = int(len(publisher_list)/2.0)
         for i in range(train_test_boundary):
@@ -262,7 +271,8 @@ def main():
 
 def master_main():
    
-    global NAIVE_BAYES 
+    global NAIVE_BAYES
+    global NAIVE_BAYES_COM
     global NEUTRAL_PARTISAN_ONLY 
     global LEFT_RIGHT_ONLY 
     global NGRAMS 
@@ -274,6 +284,7 @@ def master_main():
 
     # logistic regression, no ngrams
     NAIVE_BAYES = False 
+    NAIVE_BAYES_COM = False 
     NEUTRAL_PARTISAN_ONLY = False
     LEFT_RIGHT_ONLY = False 
     NGRAMS = False 
@@ -314,7 +325,15 @@ def master_main():
     NEUTRAL_PARTISAN_ONLY = False
     LEFT_RIGHT_ONLY = True
     main()
-    
+    # naive bayes, alternate
+    NGRAMS = False
+    LEFT_RIGHT_ONLY = False
+    NAIVE_BAYES = False
+    NAIVE_BAYES_COM = True
+    main()
+    LEFT_RIGHT_ONLY = True
+    main()
+
     print("Starting article -> publisher prints")
 
     # article -> publisher
@@ -357,6 +376,14 @@ def master_main():
     #NEUTRAL_PARTISAN_ONLY = True
     #main()
     NEUTRAL_PARTISAN_ONLY = False
+    LEFT_RIGHT_ONLY = True
+    main()
+    # naive bayes, alternate
+    NGRAMS = False
+    LEFT_RIGHT_ONLY = False
+    NAIVE_BAYES = False
+    NAIVE_BAYES_COM = True
+    main()
     LEFT_RIGHT_ONLY = True
     main()
     
@@ -402,6 +429,14 @@ def master_main():
     #NEUTRAL_PARTISAN_ONLY = True
     #main()
     NEUTRAL_PARTISAN_ONLY = False
+    LEFT_RIGHT_ONLY = True
+    main()
+    # naive bayes, alternate
+    NGRAMS = False
+    LEFT_RIGHT_ONLY = False
+    NAIVE_BAYES = False
+    NAIVE_BAYES_COM = True
+    main()
     LEFT_RIGHT_ONLY = True
     main()
     
