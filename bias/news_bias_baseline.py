@@ -4,7 +4,11 @@ import itertools
 from sklearn import linear_model
 from sklearn.feature_extraction import DictVectorizer
 from nltk.stem import PorterStemmer
-from nltk.tokenize import sent_tokenize, word_tokenize
+from nltk.corpus import stopwords
+#from nltk.tokenize import sent_tokenize, word_tokenize
+import nltk
+#nltk.download('punkt')
+#nltk.download('stopwords')
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.naive_bayes import BernoulliNB
 from sklearn.metrics import confusion_matrix
@@ -17,27 +21,16 @@ NAIVE_BAYES_COM = False
 NGRAMS = False 
 GUESS_BIAS = False
 GUESS_PUBLISHER = False 
-GUESS_BIAS_OF_PUBLISHER = False 
-
-
-def stemmedBagOfWordsExtractor(text):
-    return [ps.stem(word) for word in text.split()]
+GUESS_BIAS_OF_PUBLISHER = False
+LAPLACE_SMOOTHING = False
+stops = set(stopwords.words('english'))
 
 def bagOfWordsExtractor(text):
-    return list(text.split())
+    return [w.lower() for w in nltk.word_tokenize(text)]
 
 def nGramExtractor(text):
-    ngram_length = 2
-    words = list(text.split())
-    ngrams = []
-    for i in range(len(words) - ngram_length + 1):
-        ngram = words[i]
-        ngrams.append(ngram)
-        for j in range(i + 1, i + ngram_length):
-            ngram += " "
-            ngram += words[j]
-        ngrams.append(ngram)
-    return ngrams
+    cleaned_words = bagOfWordsExtractor(text)
+    return[b[0] + " " + b[1] for b in nltk.bigrams(cleaned_words) if b[0] not in stops and b[1] not in stops] + cleaned_words
 
 def loadData():
 
@@ -110,24 +103,30 @@ def buildFeatureVectors(X_raw):
         featureMap = {}
         features = featureExtractor(x)
         for feature in features:
-            featureMap[feature] = 1
+            featureMap[feature] = 1 
         X_map.append(featureMap)
         
     dv = DictVectorizer(sparse=False)
     vectors = dv.fit_transform(X_map)
     return vectors
         
-def evaluate(X_train, Y_train, X_test, Y_test):
+def evaluate(X_train, Y_train, X_test, Y_test, out):
         print(str(len(X_train)) + " data points in our training set")
 
         classifier = None
         if NAIVE_BAYES:
             print("Using Naive Bayes")
-            classifier = MultinomialNB()
+            if LAPLACE_SMOOTHING:
+                classifier = MultinomialNB()
+            else:
+                classifier = MultinomialNB(alpha=0)
             classifier.fit(X_train, Y_train)
         elif NAIVE_BAYES_COM:
             print("Using Naive Bayes alternate")
-            classifier = BernoulliNB()
+            if LAPLACE_SMOOTHING:
+                classifier = BernoulliNB()
+            else:
+                classifier = BernoulliNB(alpha=0)
             #classifier = ComplementNB()
             classifier.fit(X_train, Y_train)
         else:
@@ -136,9 +135,13 @@ def evaluate(X_train, Y_train, X_test, Y_test):
         
         print("Classified data")
 
-        print(classifier.score(X_train, Y_train))
+        trainScore = classifier.score(X_train, Y_train)
+        print(trainScore)
+        out.write("train: %f\n" % trainScore)
         print("Scored train data")
-        print(classifier.score(X_test, Y_test))
+        testScore = classifier.score(X_test, Y_test)
+        print(testScore)
+        out.write("test: %f\n" % testScore)
         print("Scored testing data")
         predictions = classifier.predict(X_test)
         
@@ -157,8 +160,9 @@ def evaluate(X_train, Y_train, X_test, Y_test):
             print(buckets_total)
             print("Confusion Matrix:")
             print(confusion_matrix(Y_test, predictions))
+            out.write(str(confusion_matrix(Y_test, predictions)))
 
-def main():
+def runTest(out):
     assert(not (NEUTRAL_PARTISAN_ONLY and LEFT_RIGHT_ONLY))
     assert(not (GUESS_BIAS and GUESS_PUBLISHER))
     assert(not (GUESS_BIAS and GUESS_BIAS_OF_PUBLISHER))
@@ -267,10 +271,10 @@ def main():
         test_Y = Y[train_test_boundary:]
         print("Divided data into train and test")
 
-    evaluate(train_X, train_Y, test_X, test_Y)
+    evaluate(train_X, train_Y, test_X, test_Y, out)
 
-def master_main():
-   
+def runExperiment(params, fileName):
+
     global NAIVE_BAYES
     global NAIVE_BAYES_COM
     global NEUTRAL_PARTISAN_ONLY 
@@ -278,169 +282,23 @@ def master_main():
     global NGRAMS 
     global GUESS_BIAS 
     global GUESS_PUBLISHER 
-    global GUESS_BIAS_OF_PUBLISHER 
-    
-    print("Starting (normal): article titles -> articles bias prints")
+    global GUESS_BIAS_OF_PUBLISHER
+    global LAPLACE_SMOOTHING
 
-    # logistic regression, no ngrams
-    NAIVE_BAYES = False 
-    NAIVE_BAYES_COM = False 
-    NEUTRAL_PARTISAN_ONLY = False
-    LEFT_RIGHT_ONLY = False 
-    NGRAMS = False 
-    GUESS_BIAS = True
-    GUESS_PUBLISHER = False 
-    GUESS_BIAS_OF_PUBLISHER = False 
-    main()
-    #NEUTRAL_PARTISAN_ONLY = True
-    #main()
-    NEUTRAL_PARTISAN_ONLY = False
-    LEFT_RIGHT_ONLY = True
-    main()
-    # logistic regression, with ngrams
-    LEFT_RIGHT_ONLY = False
-    NGRAMS = True
-    #main() commented out b/c times out right now
-    #NEUTRAL_PARTISAN_ONLY = True
-    #main()
-    NEUTRAL_PARTISAN_ONLY = False
-    LEFT_RIGHT_ONLY = True
-    main()
-    # naive bayes, no ngrams
-    NGRAMS = False
-    LEFT_RIGHT_ONLY = False
-    NAIVE_BAYES = True
-    main()
-    #NEUTRAL_PARTISAN_ONLY = True
-    #main()
-    NEUTRAL_PARTISAN_ONLY = False
-    LEFT_RIGHT_ONLY = True
-    main()
-    # naive bayes, with ngrams
-    LEFT_RIGHT_ONLY = False
-    NGRAMS = True
-    #main() commented out b/c times out right now
-    #NEUTRAL_PARTISAN_ONLY = True
-    #main()
-    NEUTRAL_PARTISAN_ONLY = False
-    LEFT_RIGHT_ONLY = True
-    main()
-    # naive bayes, alternate
-    NGRAMS = False
-    LEFT_RIGHT_ONLY = False
-    NAIVE_BAYES = False
-    NAIVE_BAYES_COM = True
-    main()
-    LEFT_RIGHT_ONLY = True
-    main()
-
-    print("Starting article -> publisher prints")
-
-    # article -> publisher
-    NAIVE_BAYES = False 
-    NAIVE_BAYES_COM = False 
-    NEUTRAL_PARTISAN_ONLY = False
-    LEFT_RIGHT_ONLY = False 
-    NGRAMS = False 
-    GUESS_BIAS = False 
-    GUESS_PUBLISHER = True 
-    GUESS_BIAS_OF_PUBLISHER = False 
-    main()
-    #NEUTRAL_PARTISAN_ONLY = True
-    #main()
-    NEUTRAL_PARTISAN_ONLY = False
-    LEFT_RIGHT_ONLY = True
-    main()
-    # logistic regression, with ngrams
-    LEFT_RIGHT_ONLY = False
-    NGRAMS = True
-    #main() commented out b/c times out right now
-    #NEUTRAL_PARTISAN_ONLY = True
-    #main()
-    NEUTRAL_PARTISAN_ONLY = False
-    LEFT_RIGHT_ONLY = True
-    main()
-    # naive bayes, no ngrams
-    NGRAMS = False
-    LEFT_RIGHT_ONLY = False
-    NAIVE_BAYES = True
-    main()
-    #NEUTRAL_PARTISAN_ONLY = True
-    #main()
-    NEUTRAL_PARTISAN_ONLY = False
-    LEFT_RIGHT_ONLY = True
-    main()
-    # naive bayes, with ngrams
-    LEFT_RIGHT_ONLY = False
-    NGRAMS = True
-    #main() commented out b/c times out right now
-    #NEUTRAL_PARTISAN_ONLY = True
-    #main()
-    NEUTRAL_PARTISAN_ONLY = False
-    LEFT_RIGHT_ONLY = True
-    main()
-    # naive bayes, alternate
-    NGRAMS = False
-    LEFT_RIGHT_ONLY = False
-    NAIVE_BAYES = False
-    NAIVE_BAYES_COM = True
-    main()
-    LEFT_RIGHT_ONLY = True
-    main()
+    print("Running experiment and writing to " + fileName)
     
-    print("Starting articles -> publisher bias prints")
+    NAIVE_BAYES = params["NaiveBayes"]
+    NAIVE_BAYES_COM = params["NaiveBayesCom"]
+    LAPLACE_SMOOTHING = params["LaplaceSmoothing"]
+    NEUTRAL_PARTISAN_ONLY = params["NeutralPartisanOnly"]
+    LEFT_RIGHT_ONLY = params["LeftRightOnly"]
+    NGRAMS = params["Ngrams"]
+    GUESS_BIAS = params["GuessBias"]
+    GUESS_PUBLISHER = params["GuessPublisher"]
+    GUESS_BIAS_OF_PUBLISHER = params["GuessBiasOfPublisher"]
+    
+    out = open(fileName, 'w')
 
-    # articles -> publisher bias
-    NAIVE_BAYES = False 
-    NAIVE_BAYES_COM = False 
-    NEUTRAL_PARTISAN_ONLY = False
-    LEFT_RIGHT_ONLY = False 
-    NGRAMS = False 
-    GUESS_BIAS = False 
-    GUESS_PUBLISHER = False 
-    GUESS_BIAS_OF_PUBLISHER = True 
-    main()
-    #NEUTRAL_PARTISAN_ONLY = True
-    #main()
-    NEUTRAL_PARTISAN_ONLY = False
-    LEFT_RIGHT_ONLY = True
-    main()
-    # logistic regression, with ngrams
-    LEFT_RIGHT_ONLY = False
-    NGRAMS = True
-    #main() commented out b/c times out right now
-    #NEUTRAL_PARTISAN_ONLY = True
-    #main()
-    NEUTRAL_PARTISAN_ONLY = False
-    LEFT_RIGHT_ONLY = True
-    main()
-    # naive bayes, no ngrams
-    NGRAMS = False
-    LEFT_RIGHT_ONLY = False
-    NAIVE_BAYES = True
-    main()
-    #NEUTRAL_PARTISAN_ONLY = True
-    #main()
-    NEUTRAL_PARTISAN_ONLY = False
-    LEFT_RIGHT_ONLY = True
-    main()
-    # naive bayes, with ngrams
-    LEFT_RIGHT_ONLY = False
-    NGRAMS = True
-    #main() commented out b/c times out right now
-    #NEUTRAL_PARTISAN_ONLY = True
-    #main()
-    NEUTRAL_PARTISAN_ONLY = False
-    LEFT_RIGHT_ONLY = True
-    main()
-    # naive bayes, alternate
-    NGRAMS = False
-    LEFT_RIGHT_ONLY = False
-    NAIVE_BAYES = False
-    NAIVE_BAYES_COM = True
-    main()
-    LEFT_RIGHT_ONLY = True
-    main()
-    
-    
-master_main()
+    runTest(out)
+
+    out.close()
