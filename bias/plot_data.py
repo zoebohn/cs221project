@@ -14,7 +14,7 @@ def fileName(model, isLR, nGrams, predict):
     return "%s/%s_%s_%s_%s" % (SUBDIR, model, LrOrFull, nGramStr, predict)
 
 models = ["LogisticRegression", "NaiveBayes", "LaplaceNaiveBayes"]
-modelNames = ["Random", "SGD unigrams\n(Baseline)", "SGD bigrams", "Naive Bayes\nunigrams", "Naive Bayes\nbigrams", "Naive Bayes +\nLaplace Smoothing\nunigrams", "Naive Bayes +\nLaplace Smoothing\nbigrams"]
+modelNames = ["Random", "SGD\n(Baseline)", "Naive Bayes", "Naive Bayes +\nLaplace Smoothing"]
 
 def extractDataFromFiles(isLr, predict):
     trainArr = []
@@ -27,21 +27,20 @@ def extractDataFromFiles(isLr, predict):
         testArr.append(20.0)
         trainArr.append(20.0)
     for model in models:
-        for nGrams in [False, True]:
-            with open(fileName(model, isLr, nGrams, predict), "r") as f:
-                lines = f.readlines()
-                print(lines)
-                trainM = re.match("train: (.*)", lines[0])
-                trainArr.append(float(trainM.group(1)) * 100.0)
-                testM = re.match("test: (.*)", lines[1])
-                testArr.append(float(testM.group(1)) * 100.0)
+        with open(fileName(model, isLr, False, predict), "r") as f:
+            lines = f.readlines()
+            print(lines)
+            trainM = re.match("train: (.*)", lines[0])
+            trainArr.append(float(trainM.group(1)) * 100.0)
+            testM = re.match("test: (.*)", lines[1])
+            testArr.append(float(testM.group(1)) * 100.0)
     return trainArr, testArr
 
 
 def makeBiasFullSpectrumPlot():
     trainArr, testArr = extractDataFromFiles(False, "GuessBias")
     fig, ax = plt.subplots()
-    bars = ax.bar(range(2*len(models) + 1), testArr, color=DARK_RED)
+    bars = ax.bar(range(len(models) + 1), testArr, color=DARK_RED)
     for i in range(len(bars)):
         ax.text(bars[i].get_x() + bars[i].get_width() / 2, bars[i].get_y() + bars[i].get_height() + bars[0].get_height() / 20, str(round(testArr[i])), ha='center', va='center', bbox=bgbox)
     plt.title("Accuracy of Article Title Classification (Full Spectrum)")
@@ -53,7 +52,7 @@ def makeBiasFullSpectrumPlot():
 def makeBiasLROnlyPlot():
     trainArr, testArr = extractDataFromFiles(True, "GuessBias")
     fig, ax = plt.subplots()
-    bars = ax.bar(range(2*len(models) + 1), testArr, color=DARK_RED)
+    bars = ax.bar(range(len(models) + 1), testArr, color=DARK_RED)
     for i in range(len(bars)):
         ax.text(bars[i].get_x() + bars[i].get_width() / 2, bars[i].get_y() + bars[i].get_height() + bars[0].get_height() / 30, str(round(testArr[i])), ha='center', va='center', bbox=bgbox)
     plt.title("Accuracy of Article Title Classification (Left or Right Only)")

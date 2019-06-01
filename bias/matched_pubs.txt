@@ -1,63 +1,63 @@
-Mother Jones-1
-The Federalist1
-City Journal1
-Longmont Times-Call-1
-SFGate-1
-Reason1
-Breitbart News1
-WND.com1
-Wisconsin Gazette-1
-Fox News Latino1
-Pittsburgh Post-Gazette1
-RollingStone.com-1
-PoliticusUSA-1
-Salon-1
-Socialist Alternative-1
-Chicago Sun-Times-1
-Pacific Standard-1
-Washington Examiner1
-Right Side News1
-Washington Post-1
-Politico-1
-Mashable-1
-Western Journalism1
-San Jose Mercury News-1
-Boston Herald1
-FrontPage Magazine1
-ThinkProgress-1
 Washington Times1
-Investor's Business Daily1
-Daily Northwestern-1
-Fox News1
-ABC News-1
-New York Post1
-Live Action News-1
-New York Magazine-1
-Vanity Fair-1
-Leesburg Today1
-Mediaite-1
-New York Daily News-1
-Raw Story-1
-American Thinker1
-Bowling Green Daily News-1
-The American Conservative1
-Daily Mail1
-Austin American-Statesman-1
-Grist-1
-American Spectator1
-Los Angeles Times-1
-Media Research Center1
-PolitiFact-1
-Washington Free Beacon1
-Deseret News1
-State Journal-1
-NBCNews.com-1
-San Francisco Chronicle-1
-The Verge-1
 TheBlaze.com1
-Commentary Magazine1
-CNSNews.com1
-Esquire-1
-Richmond Times Dispatch1
+Breitbart News1
+PoliticusUSA-1
+Wisconsin Gazette-1
+Chicago Sun-Times-1
+Boston Herald1
+Fox News Latino1
+Daily Mail1
+Pittsburgh Post-Gazette1
+Reason1
+Longmont Times-Call-1
+Leesburg Today1
+FrontPage Magazine1
+Deseret News1
+American Spectator1
+Grist-1
+Fox News1
+Mediaite-1
 Democracy Now-1
+Austin American-Statesman-1
+Vanity Fair-1
+Western Journalism1
+New York Post1
+Washington Free Beacon1
+City Journal1
+Politico-1
+Raw Story-1
+The Verge-1
+San Jose Mercury News-1
+NBCNews.com-1
+WND.com1
+ABC News-1
+ThinkProgress-1
+Washington Examiner1
+Investor's Business Daily1
+CNSNews.com1
+Los Angeles Times-1
+Salon-1
+Pacific Standard-1
+SFGate-1
+American Thinker1
+Media Research Center1
+New York Magazine-1
+RollingStone.com-1
+PolitiFact-1
+Daily Northwestern-1
+Esquire-1
+New York Daily News-1
+Washington Post-1
+Right Side News1
+Commentary Magazine1
+The Federalist1
+Mashable-1
+Bowling Green Daily News-1
+Socialist Alternative-1
+State Journal-1
+Mother Jones-1
+San Francisco Chronicle-1
+The American Conservative1
+Richmond Times Dispatch1
+Live Action News-1
 Boing Boing-1

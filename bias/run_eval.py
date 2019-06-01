@@ -3,6 +3,7 @@ import news_bias_baseline as bias
 params = {
         "NaiveBayes": False,
         "NaiveBayesCom": False,
+        "NaiveBayesBer": False,
         "LaplaceSmoothing": False,
         "NeutralPartisanOnly": False,
         "LeftRightOnly": False,
@@ -50,7 +51,7 @@ def runExperiments(modelParams, includeRLOnly, model, predict):
 #        bias.runExperiment(modelParams, fileName(model, True, True, predict))
 
 logisticRegressionParams = params.copy()
-runAll(logisticRegressionParams, "LogisticRegression")
+#runAll(logisticRegressionParams, "LogisticRegression")
 
 naiveBayesParams = params.copy()
 naiveBayesParams["NaiveBayesCom"] = True

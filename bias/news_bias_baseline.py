@@ -11,6 +11,7 @@ import nltk
 #nltk.download('stopwords')
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.naive_bayes import BernoulliNB
+from sklearn.naive_bayes import ComplementNB
 from sklearn.metrics import confusion_matrix
 
 ps = PorterStemmer()
@@ -18,11 +19,13 @@ NEUTRAL_PARTISAN_ONLY = False
 LEFT_RIGHT_ONLY = False 
 NAIVE_BAYES = False
 NAIVE_BAYES_COM = False
+NAIVE_BAYES_BER = False
 NGRAMS = False 
 GUESS_BIAS = False
 GUESS_PUBLISHER = False 
 GUESS_BIAS_OF_PUBLISHER = False
 LAPLACE_SMOOTHING = False
+ALPHA=1
 stops = set(stopwords.words('english'))
 
 def bagOfWordsExtractor(text):
@@ -118,17 +121,24 @@ def evaluate(X_train, Y_train, X_test, Y_test, out):
         if NAIVE_BAYES:
             print("Using Naive Bayes")
             if LAPLACE_SMOOTHING:
-                classifier = MultinomialNB()
+                classifier = MultinomialNB(alpha=ALPHA)
             else:
                 classifier = MultinomialNB(alpha=0)
             classifier.fit(X_train, Y_train)
-        elif NAIVE_BAYES_COM:
-            print("Using Naive Bayes alternate")
+        elif NAIVE_BAYES_BER:
+            print("Using Naive Bayes bernoulli")
             if LAPLACE_SMOOTHING:
-                classifier = BernoulliNB()
+                classifier = BernoulliNB(alpha=ALPHA)
             else:
                 classifier = BernoulliNB(alpha=0)
-            #classifier = ComplementNB()
+            classifier = ComplementNB()
+            classifier.fit(X_train, Y_train)
+        elif NAIVE_BAYES_COM:
+            print("Using Naive Bayes complement")
+            if LAPLACE_SMOOTHING:
+                classifier = ComplementNB(alpha=ALPHA)
+            else:
+                classifier = ComplementNB(alpha=0)
             classifier.fit(X_train, Y_train)
         else:
             classifier = linear_model.SGDClassifier()
@@ -278,6 +288,7 @@ def runExperiment(params, fileName):
 
     global NAIVE_BAYES
     global NAIVE_BAYES_COM
+    global NAIVE_BAYES_BER
     global NEUTRAL_PARTISAN_ONLY 
     global LEFT_RIGHT_ONLY 
     global NGRAMS 
@@ -290,6 +301,7 @@ def runExperiment(params, fileName):
     
     NAIVE_BAYES = params["NaiveBayes"]
     NAIVE_BAYES_COM = params["NaiveBayesCom"]
+    NAIVE_BAYES_BER = params["NaiveBayesBer"]
     LAPLACE_SMOOTHING = params["LaplaceSmoothing"]
     NEUTRAL_PARTISAN_ONLY = params["NeutralPartisanOnly"]
     LEFT_RIGHT_ONLY = params["LeftRightOnly"]
