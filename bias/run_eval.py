@@ -54,10 +54,10 @@ logisticRegressionParams = params.copy()
 #runAll(logisticRegressionParams, "LogisticRegression")
 
 naiveBayesParams = params.copy()
-naiveBayesParams["NaiveBayesCom"] = True
+naiveBayesParams["NaiveBayesBer"] = True
 runAll(naiveBayesParams, "NaiveBayes")
 
 naiveBayesLaplaceParams = params.copy()
-naiveBayesLaplaceParams["NaiveBayesCom"] = True
+naiveBayesLaplaceParams["NaiveBayesBer"] = True
 naiveBayesLaplaceParams["LaplaceSmoothing"] = True
 runAll(naiveBayesLaplaceParams, "LaplaceNaiveBayes")

@@ -26,7 +26,7 @@ GUESS_BIAS = False
 GUESS_PUBLISHER = False 
 GUESS_BIAS_OF_PUBLISHER = False
 LAPLACE_SMOOTHING = False
-ALPHA=1
+ALPHA=2
 stops = set(stopwords.words('english'))
 
 def bagOfWordsExtractor(text):
@@ -132,7 +132,6 @@ def evaluate(X_train, Y_train, X_test, Y_test, out):
                 classifier = BernoulliNB(alpha=ALPHA)
             else:
                 classifier = BernoulliNB(alpha=0)
-            classifier = ComplementNB()
             classifier.fit(X_train, Y_train)
         elif NAIVE_BAYES_COM:
             print("Using Naive Bayes complement")
