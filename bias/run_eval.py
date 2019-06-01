@@ -31,32 +31,32 @@ def runAll(modelParams, model):
     #runExperiments(modelParams, True, model, "GuessBiasOfPublisher")
 
 def runExperiments(modelParams, includeRLOnly, model, predict):
-#    print("Run no ngrams, full spectrum for %s predicting %s\n" % (model, predict))
-#    bias.runExperiment(modelParams, fileName(model, False, False, predict))
-
-#    if includeRLOnly:
-#        print("Run no ngrams, RL only for %s predicting %s\n" % (model, predict))
-#        modelParams["LeftRightOnly"] = True
-#        bias.runExperiment(modelParams, fileName(model, True, False, predict))
-
-    print("Run with ngrams, full spectrum for %s predicting %s\n" % (model, predict))
-    modelParams["Ngrams"] = True
-    modelParams["LeftRightOnly"] = False
-    bias.runExperiment(modelParams, fileName(model, False, True, predict))
+    print("Run no ngrams, full spectrum for %s predicting %s\n" % (model, predict))
+    bias.runExperiment(modelParams, fileName(model, False, False, predict))
 
     if includeRLOnly:
-        print("Run with ngrams, RL only for %s predicting %s\n" % (model, predict))
+        print("Run no ngrams, RL only for %s predicting %s\n" % (model, predict))
         modelParams["LeftRightOnly"] = True
-        bias.runExperiment(modelParams, fileName(model, True, True, predict))
+        bias.runExperiment(modelParams, fileName(model, True, False, predict))
+
+#    print("Run with ngrams, full spectrum for %s predicting %s\n" % (model, predict))
+#    modelParams["Ngrams"] = True
+#    modelParams["LeftRightOnly"] = False
+#    bias.runExperiment(modelParams, fileName(model, False, True, predict))
+#
+#    if includeRLOnly:
+#        print("Run with ngrams, RL only for %s predicting %s\n" % (model, predict))
+#        modelParams["LeftRightOnly"] = True
+#        bias.runExperiment(modelParams, fileName(model, True, True, predict))
 
 logisticRegressionParams = params.copy()
 runAll(logisticRegressionParams, "LogisticRegression")
 
 naiveBayesParams = params.copy()
-naiveBayesParams["NaiveBayes"] = True
+naiveBayesParams["NaiveBayesCom"] = True
 runAll(naiveBayesParams, "NaiveBayes")
 
 naiveBayesLaplaceParams = params.copy()
-naiveBayesLaplaceParams["NaiveBayes"] = True
+naiveBayesLaplaceParams["NaiveBayesCom"] = True
 naiveBayesLaplaceParams["LaplaceSmoothing"] = True
 runAll(naiveBayesLaplaceParams, "LaplaceNaiveBayes")
