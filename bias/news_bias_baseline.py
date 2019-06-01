@@ -26,7 +26,8 @@ LAPLACE_SMOOTHING = False
 stops = set(stopwords.words('english'))
 
 def bagOfWordsExtractor(text):
-    return [w.lower() for w in nltk.word_tokenize(text)]
+    return list(text.split())
+    #return [w.lower() for w in nltk.word_tokenize(text)]
 
 def nGramExtractor(text):
     cleaned_words = bagOfWordsExtractor(text)
