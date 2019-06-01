@@ -13,6 +13,7 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.naive_bayes import BernoulliNB
 from sklearn.naive_bayes import ComplementNB
 from sklearn.metrics import confusion_matrix
+from random import shuffle
 
 ps = PorterStemmer()
 NEUTRAL_PARTISAN_ONLY = False
@@ -244,6 +245,7 @@ def runTest(out):
         train_X_raw = []
         test_X_raw = []
         publisher_list = list(publisher_to_title.keys())
+        #shuffle(publisher_list)
         train_test_boundary = int(len(publisher_list)/2.0)
         for i in range(train_test_boundary):
             train_X_raw += publisher_to_title[publisher_list[i]]
