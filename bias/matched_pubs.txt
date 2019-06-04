@@ -1,63 +1,63 @@
-Washington Examiner1
-Los Angeles Times-1
-San Francisco Chronicle-1
-WND.com1
-Reason1
+Boston Herald1
 New York Daily News-1
-Washington Free Beacon1
-Media Research Center1
+New York Magazine-1
+Vanity Fair-1
+ABC News-1
+City Journal1
+Washington Examiner1
+SFGate-1
+Bowling Green Daily News-1
+FrontPage Magazine1
+Democracy Now-1
+Live Action News-1
+Austin American-Statesman-1
+Right Side News1
+Wisconsin Gazette-1
+Pacific Standard-1
+New York Post1
+Politico-1
+Reason1
+San Francisco Chronicle-1
 Mashable-1
-State Journal-1
-San Jose Mercury News-1
+Longmont Times-Call-1
+Grist-1
+Richmond Times Dispatch1
+TheBlaze.com1
+The Verge-1
+Salon-1
+Mother Jones-1
+CNSNews.com1
+Media Research Center1
+The Federalist1
+PoliticusUSA-1
+Washington Times1
+Esquire-1
+Boing Boing-1
 Leesburg Today1
 Investor's Business Daily1
-Austin American-Statesman-1
-Grist-1
-Right Side News1
-American Spectator1
-SFGate-1
-Richmond Times Dispatch1
-CNSNews.com1
-Deseret News1
-American Thinker1
-Daily Northwestern-1
-FrontPage Magazine1
-Longmont Times-Call-1
-Wisconsin Gazette-1
-Pittsburgh Post-Gazette1
-Democracy Now-1
-Chicago Sun-Times-1
-The American Conservative1
-Socialist Alternative-1
-Commentary Magazine1
-TheBlaze.com1
-Washington Times1
-Daily Mail1
-Boing Boing-1
-Bowling Green Daily News-1
-Raw Story-1
-The Federalist1
-ThinkProgress-1
-Mediaite-1
-Salon-1
-PoliticusUSA-1
-Washington Post-1
-PolitiFact-1
-New York Magazine-1
-Breitbart News1
-The Verge-1
-RollingStone.com-1
-NBCNews.com-1
-Mother Jones-1
-Vanity Fair-1
 Western Journalism1
-New York Post1
+American Thinker1
+Chicago Sun-Times-1
 Fox News Latino1
-Esquire-1
-City Journal1
-Boston Herald1
-ABC News-1
-Pacific Standard-1
-Live Action News-1
-Politico-1
+Breitbart News1
+State Journal-1
+Washington Free Beacon1
+Mediaite-1
+Socialist Alternative-1
+Daily Mail1
+Deseret News1
+RollingStone.com-1
+Commentary Magazine1
+Washington Post-1
+Pittsburgh Post-Gazette1
+American Spectator1
+San Jose Mercury News-1
+WND.com1
+PolitiFact-1
+The American Conservative1
+NBCNews.com-1
+ThinkProgress-1
 Fox News1
+Raw Story-1
+Los Angeles Times-1
+Daily Northwestern-1

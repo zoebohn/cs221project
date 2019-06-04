@@ -32,6 +32,21 @@ stops = set(stopwords.words('english'))
 dv = DictVectorizer(sparse=False)
 
 def bagOfWordsExtractor(text):
+    text = text.replace(",", "")
+    text = text.replace("\"", "")
+    text = text.replace("%", "")
+    text = text.replace("$", "")
+    text = text.replace("0", "")
+    text = text.replace("1", "")
+    text = text.replace("2", "")
+    text = text.replace("3", "")
+    text = text.replace("4", "")
+    text = text.replace("5", "")
+    text = text.replace("6", "")
+    text = text.replace("7", "")
+    text = text.replace("8", "")
+    text = text.replace("9", "")
+
     return list(text.split())
     #return [w.lower() for w in nltk.word_tokenize(text)]
 
@@ -162,8 +177,8 @@ def evaluate(X_train, Y_train, X_test, Y_test, out):
         print(classifier.feature_log_prob_)
         weight_dict0 = dv.inverse_transform(classifier.feature_log_prob_)[0]
         weight_dict1 = dv.inverse_transform(classifier.feature_log_prob_)[1]
-        topWeights = dict(sorted(weight_dict0.items(), key=operator.itemgetter(1))[:20])
-        bottomWeights = dict(sorted(weight_dict1.items(), key=operator.itemgetter(1))[:20])
+        topWeights = dict(sorted(weight_dict0.items(), key=operator.itemgetter(1), reverse=NAIVE_BAYES_COM)[:30])
+        bottomWeights = dict(sorted(weight_dict1.items(), key=operator.itemgetter(1), reverse=NAIVE_BAYES_COM)[:30])
         print(topWeights)
         print(bottomWeights)
 
