@@ -162,8 +162,8 @@ def evaluate(X_train, Y_train, X_test, Y_test, out):
         print(classifier.feature_log_prob_)
         weight_dict0 = dv.inverse_transform(classifier.feature_log_prob_)[0]
         weight_dict1 = dv.inverse_transform(classifier.feature_log_prob_)[1]
-        topWeights = dict(sorted(weight_dict0.items(), key=operator.itemgetter(1), reverse=True)[:20])
-        bottomWeights = dict(sorted(weight_dict1.items(), key=operator.itemgetter(1), reverse=True)[:20])
+        topWeights = dict(sorted(weight_dict0.items(), key=operator.itemgetter(1))[:20])
+        bottomWeights = dict(sorted(weight_dict1.items(), key=operator.itemgetter(1))[:20])
         print(topWeights)
         print(bottomWeights)
 
