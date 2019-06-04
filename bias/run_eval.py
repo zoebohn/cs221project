@@ -33,7 +33,7 @@ def runAll(modelParams, model):
 
 def runExperiments(modelParams, includeRLOnly, model, predict):
     print("Run no ngrams, full spectrum for %s predicting %s\n" % (model, predict))
-#    bias.runExperiment(modelParams, fileName(model, False, False, predict))
+    #bias.runExperiment(modelParams, fileName(model, False, False, predict))
 
     if includeRLOnly:
         print("Run no ngrams, RL only for %s predicting %s\n" % (model, predict))

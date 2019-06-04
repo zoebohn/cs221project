@@ -33,7 +33,13 @@ dv = DictVectorizer(sparse=False)
 
 def bagOfWordsExtractor(text):
     text = text.replace(",", "")
+    text = text.replace(".", "")
+    text = text.replace("-", "")
+    text = text.replace("(", "")
+    text = text.replace(")", "")
     text = text.replace("\"", "")
+    text = text.replace("!", "")
+    text = text.replace("?", "")
     text = text.replace("%", "")
     text = text.replace("$", "")
     text = text.replace("0", "")
