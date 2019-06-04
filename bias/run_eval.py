@@ -26,29 +26,29 @@ def runAll(modelParams, model):
     runExperiments(modelParams, True, model, "GuessBias")
     modelParams["GuessBias"] = False
     modelParams["GuessPublisher"] = True
-    #runExperiments(modelParams, False, model, "GuessPublisher")
+#    runExperiments(modelParams, False, model, "GuessPublisher")
     modelParams["GuessPublisher"] = False
     modelParams["GuessBiasOfPublisher"] = True
-    #runExperiments(modelParams, True, model, "GuessBiasOfPublisher")
+#    runExperiments(modelParams, True, model, "GuessBiasOfPublisher")
 
 def runExperiments(modelParams, includeRLOnly, model, predict):
     print("Run no ngrams, full spectrum for %s predicting %s\n" % (model, predict))
-    bias.runExperiment(modelParams, fileName(model, False, False, predict))
+#    bias.runExperiment(modelParams, fileName(model, False, False, predict))
 
     if includeRLOnly:
         print("Run no ngrams, RL only for %s predicting %s\n" % (model, predict))
         modelParams["LeftRightOnly"] = True
         bias.runExperiment(modelParams, fileName(model, True, False, predict))
 
-#    print("Run with ngrams, full spectrum for %s predicting %s\n" % (model, predict))
-#    modelParams["Ngrams"] = True
-#    modelParams["LeftRightOnly"] = False
+    print("Run with ngrams, full spectrum for %s predicting %s\n" % (model, predict))
+    modelParams["Ngrams"] = True
+    modelParams["LeftRightOnly"] = False
 #    bias.runExperiment(modelParams, fileName(model, False, True, predict))
-#
-#    if includeRLOnly:
-#        print("Run with ngrams, RL only for %s predicting %s\n" % (model, predict))
-#        modelParams["LeftRightOnly"] = True
-#        bias.runExperiment(modelParams, fileName(model, True, True, predict))
+
+    if includeRLOnly:
+        print("Run with ngrams, RL only for %s predicting %s\n" % (model, predict))
+        modelParams["LeftRightOnly"] = True
+        bias.runExperiment(modelParams, fileName(model, True, True, predict))
 
 logisticRegressionParams = params.copy()
 #runAll(logisticRegressionParams, "LogisticRegression")
