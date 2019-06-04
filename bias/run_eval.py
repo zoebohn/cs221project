@@ -48,16 +48,16 @@ def runExperiments(modelParams, includeRLOnly, model, predict):
     if includeRLOnly:
         print("Run with ngrams, RL only for %s predicting %s\n" % (model, predict))
         modelParams["LeftRightOnly"] = True
-        bias.runExperiment(modelParams, fileName(model, True, True, predict))
+#        bias.runExperiment(modelParams, fileName(model, True, True, predict))
 
 logisticRegressionParams = params.copy()
 #runAll(logisticRegressionParams, "LogisticRegression")
 
 naiveBayesParams = params.copy()
 naiveBayesParams["NaiveBayesBer"] = True
-runAll(naiveBayesParams, "NaiveBayes")
+#runAll(naiveBayesParams, "NaiveBayes")
 
 naiveBayesLaplaceParams = params.copy()
 naiveBayesLaplaceParams["NaiveBayesBer"] = True
 naiveBayesLaplaceParams["LaplaceSmoothing"] = True
-runAll(naiveBayesLaplaceParams, "LaplaceNaiveBayes")
+runAll(naiveBayesLaplaceParams, "LaplaceNaiveBayes_TEST")

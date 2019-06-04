@@ -22,7 +22,7 @@ def fileName(model, isLR, nGrams, predict):
 models = ["LogisticRegression", "NaiveBayes", "LaplaceNaiveBayes"]
 modelNames = ["Random", "SGD\n(Baseline)", "Naive Bayes", "Naive Bayes +\nLaplace Smoothing"]
 modelNamesOracle = ["Random", "SGD\n(Baseline)", "Naive Bayes", "Naive Bayes +\nLaplace Smoothing", "Oracle"]
-modelNamesBigrams = ["Random", "SGD\n(Baseline)", "SGD +\nBigrams", "Naive Bayes", "Naive Bayes+\nBigrams", "Naive Bayes +\nLaplace Smoothing +\nBigrams", "Naive Bayes +\nLaplace Smoothing +\nBigrams"]
+modelNamesBigrams = ["Random", "SGD\n(Baseline)", "SGD +\nBigrams", "Naive Bayes", "Naive Bayes+\nBigrams", "Naive Bayes +\nLaplace Smoothing", "Naive Bayes +\nLaplace Smoothing +\nBigrams"]
 modelNamesPublisher = ["Random", "SGD", "Naive Bayes", "Naive Bayes +\nLaplace Smoothing"]
 
 def extractDataFromFiles(isLr, nGrams, predict):

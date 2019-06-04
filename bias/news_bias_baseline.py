@@ -1,6 +1,7 @@
 import csv
 import json
 import itertools
+import operator
 from sklearn import linear_model
 from sklearn.feature_extraction import DictVectorizer
 from nltk.stem import PorterStemmer
@@ -28,6 +29,7 @@ GUESS_BIAS_OF_PUBLISHER = False
 LAPLACE_SMOOTHING = False
 ALPHA=2
 stops = set(stopwords.words('english'))
+dv = DictVectorizer(sparse=False)
 
 def bagOfWordsExtractor(text):
     return list(text.split())
@@ -97,6 +99,7 @@ def loadData():
     return X_raw, Y, publisher_to_title_map, publisher_to_score_map
 
 def buildFeatureVectors(X_raw):
+    global dv
     X_map = []
     featureExtractor = None
     if NGRAMS:
@@ -111,7 +114,7 @@ def buildFeatureVectors(X_raw):
             featureMap[feature] = 1 
         X_map.append(featureMap)
         
-    dv = DictVectorizer(sparse=False)
+    #dv = DictVectorizer(sparse=False)
     vectors = dv.fit_transform(X_map)
     return vectors
         
@@ -155,7 +158,17 @@ def evaluate(X_train, Y_train, X_test, Y_test, out):
         out.write("test: %f\n" % testScore)
         print("Scored testing data")
         predictions = classifier.predict(X_test)
-        
+
+        print(classifier.feature_log_prob_)
+        weight_dict0 = dv.inverse_transform(classifier.feature_log_prob_)[0]
+        weight_dict1 = dv.inverse_transform(classifier.feature_log_prob_)[1]
+        topWeights = dict(sorted(weight_dict0.items(), key=operator.itemgetter(1), reverse=True)[:20])
+        bottomWeights = dict(sorted(weight_dict1.items(), key=operator.itemgetter(1), reverse=True)[:20])
+        print(topWeights)
+        print(bottomWeights)
+
+        print(classifier.coef_[0])
+
         if GUESS_BIAS or GUESS_BIAS_OF_PUBLISHER:
             buckets_correct = [0, 0, 0, 0, 0]
             buckets_guessed = [0, 0, 0, 0, 0]
