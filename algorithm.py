@@ -180,7 +180,7 @@ def evaluate(X_train, Y_train, X_test, Y_test, out):
         print("Scored testing data")
         predictions = classifier.predict(X_test)
 
-        
+       """ 
         print(classifier.feature_log_prob_)
         weight_dict0 = dv.inverse_transform(classifier.feature_log_prob_)[0]
         weight_dict1 = dv.inverse_transform(classifier.feature_log_prob_)[1]
@@ -192,7 +192,7 @@ def evaluate(X_train, Y_train, X_test, Y_test, out):
         print(bottomWeightsNoTop)
 
         print(classifier.coef_[0])
-        
+        """
         
         if GUESS_BIAS or GUESS_BIAS_OF_PUBLISHER:
             buckets_correct = [0, 0, 0, 0, 0]
