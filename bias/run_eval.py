@@ -20,44 +20,60 @@ def fileName(model, isLR, nGrams, predict):
     nGramStr = "nGrams" if nGrams else "noNgrams"
     return "%s/%s_%s_%s_%s" % (SUBDIR, model, LrOrFull, nGramStr, predict)
 
-def runAll(modelParams, model):
+def runAll(modelParams, model, fullSpectrum, rL):
     print("Run all experiments for %s\n" % (model))
     modelParams["GuessBias"] = True
-    runExperiments(modelParams, True, model, "GuessBias")
+    runBiasExperiments(modelParams, model, "GuessBias", fullSpectrum, rL)
     modelParams["GuessBias"] = False
     modelParams["GuessPublisher"] = True
-#    runExperiments(modelParams, False, model, "GuessPublisher")
+    runExperiments(modelParams, model, "GuessPublisher")
     modelParams["GuessPublisher"] = False
     modelParams["GuessBiasOfPublisher"] = True
-#    runExperiments(modelParams, True, model, "GuessBiasOfPublisher")
+    runExperiments(modelParams, model, "GuessBiasOfPublisher")
 
-def runExperiments(modelParams, includeRLOnly, model, predict):
-    print("Run no ngrams, full spectrum for %s predicting %s\n" % (model, predict))
-    #bias.runExperiment(modelParams, fileName(model, False, False, predict))
+def runBiasExperiments(modelParams, model, predict, fullSpectrum, rL):
+    if fullSpectrum:
+        print("Run no ngrams, full spectrum for %s predicting %s\n" % (model, predict))
+        bias.runExperiment(modelParams, fileName(model, False, False, predict))
 
-    if includeRLOnly:
+    if rL:
         print("Run no ngrams, RL only for %s predicting %s\n" % (model, predict))
         modelParams["LeftRightOnly"] = True
         bias.runExperiment(modelParams, fileName(model, True, False, predict))
 
-    print("Run with ngrams, full spectrum for %s predicting %s\n" % (model, predict))
-    modelParams["Ngrams"] = True
-    modelParams["LeftRightOnly"] = False
-#    bias.runExperiment(modelParams, fileName(model, False, True, predict))
+    if fullSpectrum:
+        print("Run with ngrams, full spectrum for %s predicting %s\n" % (model, predict))
+        modelParams["Ngrams"] = True
+        modelParams["LeftRightOnly"] = False
+        bias.runExperiment(modelParams, fileName(model, False, True, predict))
 
-    if includeRLOnly:
+    if rL:
         print("Run with ngrams, RL only for %s predicting %s\n" % (model, predict))
         modelParams["LeftRightOnly"] = True
-#        bias.runExperiment(modelParams, fileName(model, True, True, predict))
+        bias.runExperiment(modelParams, fileName(model, True, True, predict))
+
+
+def runOtherExperiments(modelParams, model, predict):
+    print("Run no ngrams, full spectrum for %s predicting %s\n" % (model, predict))
+    bias.runExperiment(modelParams, fileName(model, False, False, predict))
 
 logisticRegressionParams = params.copy()
-#runAll(logisticRegressionParams, "LogisticRegression")
+runAll(logisticRegressionParams, "LogisticRegression", True, True)
+
+naiveBayesParams = params.copy()
+naiveBayesParams["NaiveBayesCom"] = True
+runAll(naiveBayesParams, "NaiveBayes", True, False)
+
+naiveBayesLaplaceParams = params.copy()
+naiveBayesLaplaceParams["NaiveBayesCom"] = True
+naiveBayesLaplaceParams["LaplaceSmoothing"] = True
+runAll(naiveBayesLaplaceParams, "LaplaceNaiveBayes", True, False)
 
 naiveBayesParams = params.copy()
 naiveBayesParams["NaiveBayesBer"] = True
-#runAll(naiveBayesParams, "NaiveBayes")
+runAll(naiveBayesParams, "NaiveBayes", False, True)
 
 naiveBayesLaplaceParams = params.copy()
 naiveBayesLaplaceParams["NaiveBayesBer"] = True
 naiveBayesLaplaceParams["LaplaceSmoothing"] = True
-runAll(naiveBayesLaplaceParams, "LaplaceNaiveBayes_TEST")
+runAll(naiveBayesLaplaceParams, "LaplaceNaiveBayes", False, True)

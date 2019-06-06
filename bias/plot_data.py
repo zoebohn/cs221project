@@ -94,7 +94,7 @@ def makeBiasOracleLROnlyPlot():
     bars = plt.bar(range(len(models) + 2), testArr, color=mix_colors[1])
     for i in range(len(bars)):
         ax.text(bars[i].get_x() + bars[i].get_width() / 2, bars[i].get_y() + bars[i].get_height() - bars[0].get_height() / 8, str(round(testArr[i])), ha='center', va='center', color='white')
-    plt.title("Accuracy of Article Title Classification with Oracle (Left or Right Only)")
+    plt.title("Accuracy of Article Title Classification with Oracle (Left or Right)")
     plt.ylabel("Accuracy (%)")
     #plt.ylim(0, 40)
     plt.xticks(range(len(modelNamesOracle)), modelNamesOracle, rotation='vertical')

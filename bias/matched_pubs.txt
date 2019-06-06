@@ -1,63 +1,63 @@
-TheBlaze.com1
-WND.com1
-Pittsburgh Post-Gazette1
-Socialist Alternative-1
-Longmont Times-Call-1
-Richmond Times Dispatch1
-Daily Mail1
-FrontPage Magazine1
-Reason1
-RollingStone.com-1
-Live Action News-1
-Democracy Now-1
-State Journal-1
-Media Research Center1
 Los Angeles Times-1
-City Journal1
 American Spectator1
-Fox News1
-Washington Examiner1
-Washington Post-1
-ThinkProgress-1
-San Jose Mercury News-1
-Chicago Sun-Times-1
-Grist-1
-Daily Northwestern-1
-Deseret News1
-Right Side News1
-Vanity Fair-1
-ABC News-1
-San Francisco Chronicle-1
-Western Journalism1
-Pacific Standard-1
-Leesburg Today1
-The Federalist1
-CNSNews.com1
-Raw Story-1
-The American Conservative1
-NBCNews.com-1
-New York Daily News-1
-PoliticusUSA-1
-Mediaite-1
-Mother Jones-1
-Fox News Latino1
-Salon-1
-American Thinker1
-Mashable-1
+Washington Free Beacon1
 Washington Times1
 Boing Boing-1
-Washington Free Beacon1
-SFGate-1
-Commentary Magazine1
 Esquire-1
-Austin American-Statesman-1
-Politico-1
-Breitbart News1
+San Jose Mercury News-1
+Mediaite-1
 The Verge-1
-Bowling Green Daily News-1
-Boston Herald1
-PolitiFact-1
+PoliticusUSA-1
+Pittsburgh Post-Gazette1
+Leesburg Today1
 New York Magazine-1
-New York Post1
+Mashable-1
+Fox News Latino1
+The Federalist1
+City Journal1
+Pacific Standard-1
+Washington Examiner1
+Commentary Magazine1
+Western Journalism1
+Bowling Green Daily News-1
+PolitiFact-1
+Daily Mail1
+ABC News-1
+Richmond Times Dispatch1
+Grist-1
+FrontPage Magazine1
 Investor's Business Daily1
+Vanity Fair-1
+Mother Jones-1
+Politico-1
+Chicago Sun-Times-1
+ThinkProgress-1
+Salon-1
+Boston Herald1
+San Francisco Chronicle-1
+The American Conservative1
+Live Action News-1
+NBCNews.com-1
+TheBlaze.com1
+Breitbart News1
+Daily Northwestern-1
+SFGate-1
+Media Research Center1
+New York Post1
+Reason1
+State Journal-1
+Socialist Alternative-1
 Wisconsin Gazette-1
+WND.com1
+Deseret News1
+Democracy Now-1
+New York Daily News-1
+Washington Post-1
+CNSNews.com1
+RollingStone.com-1
+Longmont Times-Call-1
+American Thinker1
+Fox News1
+Right Side News1
+Austin American-Statesman-1
+Raw Story-1

@@ -180,16 +180,20 @@ def evaluate(X_train, Y_train, X_test, Y_test, out):
         print("Scored testing data")
         predictions = classifier.predict(X_test)
 
+        
         print(classifier.feature_log_prob_)
         weight_dict0 = dv.inverse_transform(classifier.feature_log_prob_)[0]
         weight_dict1 = dv.inverse_transform(classifier.feature_log_prob_)[1]
-        topWeights = dict(sorted(weight_dict0.items(), key=operator.itemgetter(1), reverse=NAIVE_BAYES_COM)[:30])
-        bottomWeights = dict(sorted(weight_dict1.items(), key=operator.itemgetter(1), reverse=NAIVE_BAYES_COM)[:30])
-        print(topWeights)
-        print(bottomWeights)
+        topWeights = dict(sorted(weight_dict0.items(), key=operator.itemgetter(1), reverse=NAIVE_BAYES_COM)[:1000])
+        bottomWeights = dict(sorted(weight_dict1.items(), key=operator.itemgetter(1), reverse=NAIVE_BAYES_COM)[:1000])
+        topWeightsNoBottom = [x for x in topWeights if x not in bottomWeights]
+        bottomWeightsNoTop = [x for x in bottomWeights if x not in topWeights]
+        print(topWeightsNoBottom)
+        print(bottomWeightsNoTop)
 
         print(classifier.coef_[0])
-
+        
+        
         if GUESS_BIAS or GUESS_BIAS_OF_PUBLISHER:
             buckets_correct = [0, 0, 0, 0, 0]
             buckets_guessed = [0, 0, 0, 0, 0]
